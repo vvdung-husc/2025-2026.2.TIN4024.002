@@ -2,9 +2,7 @@ DANH SÁCH NHÓM 2
 1. Võ Việt Dũng
 2. Nguyễn Đăng Khôi
 3. Nguyễn Gia Huy
-<<<<<<< HEAD
 6. Trần Hữu Minh Quân
-=======
 4. Nguyễn Hữu Đạt
 5.Mai Văn Linh
 >>>>>>> bcefb48e047b37983c926e1f3bf2670e934d589c
