@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "author": "Giàu Nguyễn Văn",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": -57.6, "left": -62.36, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -97.2,
+      "left": 169.8,
+      "rotate": 90,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": -49.2,
+      "left": 169.8,
+      "rotate": 90,
+      "attrs": { "color": "yellow" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led3",
+      "top": -1.2,
+      "left": 169.8,
+      "rotate": 90,
+      "attrs": { "color": "green" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:GND.2", "led1:C", "black", [ "v0" ] ],
+    [ "esp:23", "led1:A", "red", [ "h0" ] ],
+    [ "esp:GND.2", "led2:C", "black", [ "v0" ] ],
+    [ "esp:22", "led2:A", "red", [ "h0" ] ],
+    [ "esp:GND.2", "led3:C", "black", [ "h86.4", "v64.4" ] ],
+    [ "esp:19", "led3:A", "red", [ "h0" ] ]
+  ],
+  "dependencies": {}
+}
