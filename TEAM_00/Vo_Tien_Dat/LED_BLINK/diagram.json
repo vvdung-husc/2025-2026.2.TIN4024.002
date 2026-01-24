@@ -6,24 +6,44 @@
     {
       "type": "board-esp32-devkit-c-v4",
       "id": "esp",
-      "top": -28.8,
-      "left": -33.56,
+      "top": 57.6,
+      "left": 33.64,
       "attrs": { "builder": "esp-idf" }
     },
     {
       "type": "wokwi-led",
       "id": "led1",
-      "top": -68.4,
-      "left": 141,
+      "top": -39.6,
+      "left": -60.6,
       "rotate": 90,
       "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": 8.4,
+      "left": -60.6,
+      "rotate": 90,
+      "attrs": { "color": "yellow" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led3",
+      "top": 56.4,
+      "left": -60.6,
+      "rotate": 90,
+      "attrs": { "color": "limegreen" }
     }
   ],
   "connections": [
     [ "esp:TX", "$serialMonitor:RX", "", [] ],
     [ "esp:RX", "$serialMonitor:TX", "", [] ],
-    [ "esp:GND.2", "led1:C", "black", [ "v0" ] ],
-    [ "led1:A", "esp:23", "green", [ "h0" ] ]
+    [ "led1:C", "esp:GND.1", "black", [ "h-67.2", "v221.2" ] ],
+    [ "led2:C", "esp:GND.1", "black", [ "h-57.6", "v182.8", "h144" ] ],
+    [ "led3:C", "esp:GND.1", "black", [ "h-57.6", "v134.8" ] ],
+    [ "led1:A", "esp:25", "red", [ "h-48", "v172.8" ] ],
+    [ "led2:A", "esp:33", "yellow", [ "h-38.4", "v105.6" ] ],
+    [ "led3:A", "esp:32", "green", [ "h-28.8", "v57.6" ] ]
   ],
   "dependencies": {}
 }
