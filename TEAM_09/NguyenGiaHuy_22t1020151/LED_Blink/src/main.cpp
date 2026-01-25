@@ -20,7 +20,7 @@ void loop() {
   static unsigned long ulTimer = 0;
   static bool ledStatus = false;
 
-  if (IsReady(ulTimer, 2000)){
+  if (IsReady(ulTimer, 1000)) { //1 second
     ledStatus = !ledStatus;
     printf("LED IS %s\n", ledStatus ? "ON" : "OFF");
     digitalWrite(PIN_LED_RED, ledStatus ? HIGH : LOW);
