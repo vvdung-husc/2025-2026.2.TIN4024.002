@@ -1,95 +1,76 @@
 #include <Arduino.h>
 
-// GPIO theo diagram.json
-#define LED_RED     25
-#define LED_YELLOW  33
-#define LED_GREEN   32
+// GPIO
+#define PIN_LED_RED     25
+#define PIN_LED_YELLOW  33
+#define PIN_LED_GREEN   32
 
-// Thời gian từng đèn (giây)
+// Số giây (số lần nháy)
 #define RED_TIME     5
-#define YELLOW_TIME  3
 #define GREEN_TIME   7
+#define YELLOW_TIME  3
 
-unsigned long lastTick = 0;
-unsigned long lastPrint = 0;
-int remaining = 0;
-uint8_t state = 0;
-
-// non-blocking timer
-bool IsReady(unsigned long &t, unsigned long ms) {
-  if (millis() - t < ms) return false;
-  t = millis();
+bool IsReady(unsigned long &timer, uint32_t ms) {
+  if (millis() - timer < ms) return false;
+  timer = millis();
   return true;
 }
 
 void setup() {
-  pinMode(LED_RED, OUTPUT);
-  pinMode(LED_YELLOW, OUTPUT);
-  pinMode(LED_GREEN, OUTPUT);
-
   Serial.begin(115200);
-  Serial.println("TRAFFIC LIGHT START");
 
-  // trạng thái ban đầu
-  state = 0;
-  remaining = RED_TIME;
-  lastTick = millis();
-  lastPrint = millis();
+  pinMode(PIN_LED_RED, OUTPUT);
+  pinMode(PIN_LED_YELLOW, OUTPUT);
+  pinMode(PIN_LED_GREEN, OUTPUT);
+
+  // in trạng thái đầu tiên
+  Serial.printf("LED [RED] ON => %d Seconds\n", RED_TIME);
 }
 
 void loop() {
+  static unsigned long timer = 0;
+  static bool ledOn = false;
 
-  /* In ra mỗi 1 giây */
-  if (IsReady(lastPrint, 1000)) {
-    remaining--;
+  static int state = 0;          // 0: RED, 1: GREEN, 2: YELLOW
+  static int remaining = RED_TIME;
 
-    switch (state) {
-      case 0:
-        Serial.printf("LED [RED] ON => %d Seconds\n", remaining);
-        break;
-      case 1:
-        Serial.printf("LED [GREEN] ON => %d Seconds\n", remaining);
-        break;
-      case 2:
-        Serial.printf("LED [YELLOW] ON => %d Seconds\n", remaining);
-        break;
+  if (IsReady(timer, 500)) {   // mỗi 1 giây
+
+    ledOn = !ledOn;
+
+    // tắt tất cả
+    digitalWrite(PIN_LED_RED, LOW);
+    digitalWrite(PIN_LED_GREEN, LOW);
+    digitalWrite(PIN_LED_YELLOW, LOW);
+
+    // bật theo state
+    if (state == 0) digitalWrite(PIN_LED_RED, ledOn);
+    if (state == 1) digitalWrite(PIN_LED_GREEN, ledOn);
+    if (state == 2) digitalWrite(PIN_LED_YELLOW, ledOn);
+
+    // chỉ giảm thời gian khi LED vừa TẮT
+    if (!ledOn) {
+      remaining--;
+
+      // hết thời gian → chuyển đèn
+      if (remaining == 0) {
+
+        if (state == 0) {
+          state = 1;
+          remaining = GREEN_TIME;
+          Serial.printf("LED [GREEN] ON => %d Seconds", GREEN_TIME);
+        }
+        else if (state == 1) {
+          state = 2;
+          remaining = YELLOW_TIME;
+          Serial.printf("LED [YELLOW] ON => %d Seconds", YELLOW_TIME);
+        }
+        else {
+          state = 0;
+          remaining = RED_TIME;
+          Serial.printf("LED [RED] ON => %d Seconds", RED_TIME);
+        }
+      }
     }
-  }
-
-  /* Điều khiển đèn theo state */
-  switch (state) {
-
-    case 0: // RED
-      digitalWrite(LED_RED, HIGH);
-      digitalWrite(LED_YELLOW, LOW);
-      digitalWrite(LED_GREEN, LOW);
-
-      if (remaining <= 0) {
-        state = 1;
-        remaining = GREEN_TIME;
-      }
-      break;
-
-    case 1: // GREEN
-      digitalWrite(LED_RED, LOW);
-      digitalWrite(LED_YELLOW, LOW);
-      digitalWrite(LED_GREEN, HIGH);
-
-      if (remaining <= 0) {
-        state = 2;
-        remaining = YELLOW_TIME;
-      }
-      break;
-
-    case 2: // YELLOW
-      digitalWrite(LED_RED, LOW);
-      digitalWrite(LED_YELLOW, HIGH);
-      digitalWrite(LED_GREEN, LOW);
-
-      if (remaining <= 0) {
-        state = 0;
-        remaining = RED_TIME;
-      }
-      break;
   }
 }
