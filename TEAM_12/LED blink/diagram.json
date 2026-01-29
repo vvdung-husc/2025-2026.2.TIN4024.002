@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "author": "Gemini",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 0, "left": 0 },
+    { "type": "wokwi-led", "id": "led_red", "top": -100, "left": 100, "attrs": { "color": "red" } },
+    { "type": "wokwi-led", "id": "led_yellow", "top": -60, "left": 100, "attrs": { "color": "yellow" } },
+    { "type": "wokwi-led", "id": "led_green", "top": -20, "left": 100, "attrs": { "color": "green" } }
+  ],
+  "connections": [
+    [ "esp:GND.1", "led_red:C", "black", [] ],
+    [ "esp:GND.1", "led_yellow:C", "black", [] ],
+    [ "esp:GND.1", "led_green:C", "black", [] ],
+    [ "esp:2", "led_red:A", "red", [] ],
+    [ "esp:4", "led_yellow:A", "orange", [] ],
+    [ "esp:5", "led_green:A", "green", [] ]
+  ]
+}
