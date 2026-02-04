@@ -1,12 +1,11 @@
 #include <Wire.h>
-#include <Adafruit_GFX.h>
-#include <Adafruit_SSD1306.h>
+#include <U8g2lib.h>
 #include <DHT.h>
 
 #define SCREEN_WIDTH 128
 #define SCREEN_HEIGHT 64
 #define OLED_RESET    -1
-Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
+U8G2_SSD1306_128X64_NONAME_F_HW_I2C u8g2(U8G2_R0, /* reset=*/ U8X8_PIN_NONE, /* clock=*/ 12, /* data=*/ 13);
 
 #define DHTPIN 16 
 #define DHTTYPE DHT22
@@ -26,13 +25,8 @@ void setup() {
   pinMode(LED_RED, OUTPUT);
 
   dht.begin();
-  Wire.begin(); // Khởi tạo I2C
-  if(!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) {
-    Serial.println("OLED init failed!");
-    // for(;;); // Comment để tiếp tục chạy trong Wokwi
-  }
+  u8g2.begin();
   Serial.println("OLED initialized");
-  display.clearDisplay();
   delay(100); // Đợi OLED ổn định
 }
 
@@ -44,12 +38,10 @@ void loop() {
   if (isnan(temp) || isnan(hum)) {
     Serial.println("Sensor read failed!");
     // Hiển thị lỗi trên OLED
-    display.clearDisplay();
-    display.setTextColor(SSD1306_WHITE);
-    display.setTextSize(2);
-    display.setCursor(0, 20);
-    display.println("Sensor Error");
-    display.display();
+    u8g2.clearBuffer();
+    u8g2.setFont(u8g2_font_ncenB14_tr);
+    u8g2.drawStr(0, 30, "Sensor Error");
+    u8g2.sendBuffer();
     delay(2000);
     return;
   }
@@ -61,46 +53,44 @@ void loop() {
   Serial.println(" %");
 
   String statusText = "";
+  String ledColor = "";
   int activeLED = -1;
 
   // Xác định trạng thái và đèn LED dựa trên bảng yêu cầu
-  if (temp < 13.0) { statusText = "TOO COLD"; activeLED = LED_CYAN; }
-  else if (temp < 20.0) { statusText = "COLD"; activeLED = LED_CYAN; }
-  else if (temp < 25.0) { statusText = "COOL"; activeLED = LED_YELLOW; }
-  else if (temp < 30.0) { statusText = "WARM"; activeLED = LED_YELLOW; }
-  else if (temp < 35.0) { statusText = "HOT"; activeLED = LED_RED; }
-  else { statusText = "TOO HOT"; activeLED = LED_RED; }
+  if (temp < 13.0) { statusText = "TOO COLD"; ledColor = "Cyan"; activeLED = LED_CYAN; }
+  else if (temp < 20.0) { statusText = "COLD"; ledColor = "Cyan"; activeLED = LED_CYAN; }
+  else if (temp < 25.0) { statusText = "COOL"; ledColor = "Yellow"; activeLED = LED_YELLOW; }
+  else if (temp < 30.0) { statusText = "WARM"; ledColor = "Yellow"; activeLED = LED_YELLOW; }
+  else if (temp < 35.0) { statusText = "HOT"; ledColor = "Red"; activeLED = LED_RED; }
+  else { statusText = "TOO HOT"; ledColor = "Red"; activeLED = LED_RED; }
 
-  // --- HIỂN THỊ OLED GIỐNG HÌNH MẪU ---
-  display.clearDisplay();
-  display.setTextColor(SSD1306_WHITE);
+  // --- HIỂN THỊ OLED ---
+  u8g2.clearBuffer();
+  u8g2.setFont(u8g2_font_ncenB08_tr);
 
-  // Dòng 1: Temperature và Trạng thái (Size 1)
-  display.setTextSize(1);
-  display.setCursor(0, 0);
-  display.print("Temperature: ");
-  display.println(statusText);
-  display.display();
+  // Dòng 1: Nhiệt độ
+  u8g2.drawStr(0, 10, "Temp: ");
+  char tempBuf[10];
+  sprintf(tempBuf, "%.2f", temp);
+  u8g2.drawStr(40, 10, tempBuf);
+  u8g2.drawStr(80, 10, "°C");
 
-  // Dòng 2: Giá trị nhiệt độ (Size 2)
-  display.setTextSize(2);
-  display.setCursor(0, 12);
-  display.print(temp, 2); 
-  display.println(" °C");
-  display.display();
+  // Dòng 2: Độ ẩm
+  u8g2.drawStr(0, 22, "Hum: ");
+  char humBuf[10];
+  sprintf(humBuf, "%.2f", hum);
+  u8g2.drawStr(40, 22, humBuf);
+  u8g2.drawStr(80, 22, "%");
 
-  // Dòng 3: Humidity (Size 1)
-  display.setTextSize(1);
-  display.setCursor(0, 35);
-  display.println("Humidity:");
-  display.display();
+  // Dòng 3: Trạng thái
+  u8g2.drawStr(0, 34, "Status: ");
+  u8g2.drawStr(50, 34, statusText.c_str());
 
-  // Dòng 4: Giá trị độ ẩm (Size 2)
-  display.setTextSize(2);
-  display.setCursor(0, 47);
-  display.print(hum, 2);
-  display.println(" %");
-  display.display();
+  // Dòng 4: LED
+  u8g2.drawStr(0, 46, "LED: ");
+  u8g2.drawStr(40, 46, ledColor.c_str());
+
+  u8g2.sendBuffer();
 
   // --- HIỆU ỨNG NHẤP NHÁY LED ---
   digitalWrite(LED_CYAN, LOW);
