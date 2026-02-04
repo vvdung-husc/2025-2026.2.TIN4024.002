@@ -1,6 +1,7 @@
 /*
 THÔNG TIN NHÓM 8
 1. Lê Phước Phúc - 22T1020700
+2. Lê Văn Hoàng Thái - 22T1020417
 */
 #include <Arduino.h>
 #include <Wire.h>
