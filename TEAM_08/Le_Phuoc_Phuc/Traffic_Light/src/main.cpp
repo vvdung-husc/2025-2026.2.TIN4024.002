@@ -1,11 +1,15 @@
+/*
+THÔNG TIN NHÓM 8
+1. Lê Phước Phúc - 22T1020700
+*/
 #include <Arduino.h>
 #include <TM1637Display.h>
 
 // ================= LED =================
-#define LED_RED     25
-#define LED_YELLOW  33
-#define LED_GREEN   32
-#define LED_BLUE    21
+#define LED_RED     4
+#define LED_YELLOW  2
+#define LED_GREEN   16
+#define LED_BLUE    15
 
 // ================= LDR =================
 #define LDR_PIN     13
