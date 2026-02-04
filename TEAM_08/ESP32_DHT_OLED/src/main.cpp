@@ -1,3 +1,7 @@
+/*
+THÔNG TIN NHÓM 8
+1. Lê Phước Phúc - 22T1020700
+*/
 #include <Arduino.h>
 #include <Wire.h>
 #include <Adafruit_GFX.h>
