@@ -1,83 +1,102 @@
+/*
+THÔNG TIN NHÓM 8
+1. Lê Phước Phúc - 22T1020700
+*/
 #include <Arduino.h>
 #include <TM1637Display.h>
 
-// ================= PIN =================
-#define LED_RED     25
-#define LED_YELLOW  26
-#define LED_GREEN   27
-#define LED_BLUE    14
+// ================= LED =================
+#define LED_RED     4
+#define LED_YELLOW  2
+#define LED_GREEN   16
+#define LED_BLUE    15
 
-#define BUTTON_PIN  12
-#define LDR_PIN     34
+// ================= LDR =================
+#define LDR_PIN     13
 
+// ================= DISPLAY =================
 #define CLK 18
 #define DIO 19
-
 TM1637Display display(CLK, DIO);
 
-// =============== TIME ==================
-int greenTime  = 10;
-int yellowTime = 3;
-int redTime    = 10;
+// ================= THỜI GIAN (giây) =================
+int timeRed    = 5;
+int timeYellow = 3;
+int timeGreen  = 7;
 
-// ======================================
+// ================= NGƯỠNG ÁNH SÁNG =================
+int lightThreshold = 2000;  // >2000 = sáng
+
+// ================= HÀM NHẤP NHÁY + ĐẾM NGƯỢC =================
+void blinkLed(int ledPin, int seconds, const char* name) {
+  Serial.println("-------------------------");
+  Serial.print("Bat dau LED ");
+  Serial.println(name);
+
+  for (int i = seconds - 1; i >= 0; i--) {
+    display.showNumberDec(i, true);  // hiển thị đếm ngược
+
+    Serial.print("LED ");
+    Serial.print(name);
+    Serial.print(" - Con lai: ");
+    Serial.print(i);
+    Serial.println(" giay");
+
+    digitalWrite(ledPin, HIGH);
+    delay(500);
+    digitalWrite(ledPin, LOW);
+    delay(500);
+  }
+}
+
+// ================= SETUP =================
 void setup() {
+  Serial.begin(115200);
+
   pinMode(LED_RED, OUTPUT);
   pinMode(LED_YELLOW, OUTPUT);
   pinMode(LED_GREEN, OUTPUT);
   pinMode(LED_BLUE, OUTPUT);
 
-  pinMode(BUTTON_PIN, INPUT_PULLUP);
+  pinMode(LDR_PIN, INPUT);
 
   display.setBrightness(7);
   display.clear();
 
-  Serial.begin(115200);
+  Serial.println("ESP32 + LDR + LED + DISPLAY BAT DAU");
 }
 
-// ================= LED CONTROL =========
-void setLights(bool r, bool y, bool g) {
-  digitalWrite(LED_RED, r);
-  digitalWrite(LED_YELLOW, y);
-  digitalWrite(LED_GREEN, g);
-}
-
-// ================= COUNTDOWN ===========
-void countdown(int seconds) {
-  for (int i = seconds; i >= 0; i--) {
-    display.showNumberDec(i, true);
-    delay(1000);
-
-    // Nếu nhấn nút → sang đèn đỏ
-    if (digitalRead(BUTTON_PIN) == LOW) {
-      display.clear();
-      return;
-    }
-  }
-}
-
-// ================= LOOP ================
+// ================= LOOP =================
 void loop() {
+  int lightValue = analogRead(LDR_PIN);
 
-  // ===== LDR =====
-  int ldrValue = analogRead(LDR_PIN);
-  Serial.println(ldrValue);
+  Serial.print("Gia tri LDR: ");
+  Serial.println(lightValue);
 
-  if (ldrValue < 1500) {        // Trời tối
-    digitalWrite(LED_BLUE, HIGH);
-  } else {
+  // ===== TRỜI SÁNG → TẮT HỆ THỐNG =====
+  if (lightValue > lightThreshold) {
+    digitalWrite(LED_RED, LOW);
+    digitalWrite(LED_YELLOW, LOW);
+    digitalWrite(LED_GREEN, LOW);
     digitalWrite(LED_BLUE, LOW);
+    display.clear();
+
+    Serial.println("Moi truong SANG → Tat LED");
+    delay(1000);
+    return;
   }
 
-  // ===== ĐÈN XANH =====
-  setLights(LOW, LOW, HIGH);
-  countdown(greenTime);
+  // ===== TRỜI TỐI → CHẠY HỆ THỐNG =====
+  Serial.println("Moi truong TOI → He thong hoat dong");
 
-  // ===== ĐÈN VÀNG =====
-  setLights(LOW, HIGH, LOW);
-  countdown(yellowTime);
+  digitalWrite(LED_BLUE, HIGH); // báo hệ thống ON
 
-  // ===== ĐÈN ĐỎ =====
-  setLights(HIGH, LOW, LOW);
-  countdown(redTime);
+  blinkLed(LED_RED, timeRed, "DO");
+  delay(500);
+
+  blinkLed(LED_YELLOW, timeYellow, "VANG");
+  delay(500);
+
+  blinkLed(LED_GREEN, timeGreen, "XANH");
+  delay(1000);
 }
