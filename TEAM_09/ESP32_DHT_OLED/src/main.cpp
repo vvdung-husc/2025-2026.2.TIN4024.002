@@ -2,6 +2,7 @@
 THÔNG TIN NHÓM 9
 1. Nguyễn Đăng Khôi
 2. Nguyễn Gia Huy
+3. Nguyễn Lê Bá Minh
 */
 
 #include "main.h"
