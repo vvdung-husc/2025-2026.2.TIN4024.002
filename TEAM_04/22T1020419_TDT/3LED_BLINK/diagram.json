@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-esp32-devkit-v1",
+      "id": "esp",
+      "top": 200,
+      "left": 140,
+      "attrs": {}
+    },
+    { "type": "wokwi-led", "id": "led1", "top": 20, "left": 60, "attrs": { "color": "cyan" } },
+    { "type": "wokwi-led", "id": "led2", "top": 20, "left": 160, "attrs": { "color": "yellow" } },
+    { "type": "wokwi-led", "id": "led3", "top": 20, "left": 260, "attrs": { "color": "magenta" } },
+
+    { "type": "wokwi-resistor", "id": "r1", "top": 80, "left": 60, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "r2", "top": 80, "left": 160, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "r3", "top": 80, "left": 260, "attrs": { "value": "220" } }
+  ],
+  "connections": [
+    ["led1:A", "r1:1", "cyan"],
+    ["r1:2", "esp:GPIO25", "cyan"],
+    ["led1:C", "esp:GND.1", "black"],
+
+    ["led2:A", "r2:1", "yellow"],
+    ["r2:2", "esp:GPIO26", "yellow"],
+    ["led2:C", "esp:GND.1", "black"],
+
+    ["led3:A", "r3:1", "magenta"],
+    ["r3:2", "esp:GPIO27", "magenta"],
+    ["led3:C", "esp:GND.1", "black"]
+  ]
+}

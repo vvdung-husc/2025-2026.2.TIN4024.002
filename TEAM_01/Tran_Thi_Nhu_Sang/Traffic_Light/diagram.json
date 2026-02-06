@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "author": "Traffic Light",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": -20, "left": -10 },
+
+    { "type": "wokwi-led", "id": "red", "color": "red", "top": -110, "left": 170 },
+    { "type": "wokwi-led", "id": "yellow", "color": "yellow", "top": -60, "left": 170 },
+    { "type": "wokwi-led", "id": "green", "color": "green", "top": -10, "left": 170 }
+  ],
+  "connections": [
+    ["esp:23", "red:A", "green"],
+    ["esp:22", "yellow:A", "green"],
+    ["esp:21", "green:A", "green"],
+
+    ["red:C", "esp:GND", "black"],
+    ["yellow:C", "esp:GND", "black"],
+    ["green:C", "esp:GND", "black"]
+  ]
+}
