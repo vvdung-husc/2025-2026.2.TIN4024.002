@@ -1,17 +1,13 @@
 /*
 THÔNG TIN NHÓM 7
-<<<<<<< HEAD
 1. Lê Công Mẫn
-=======
-1. 
->>>>>>> 4407cdf098fece2f058ee05089a5db97904f60b2
 2. Võ Tiến Đạt
 3. Hồ Thị Kiều Oanh 
 4. Nguyễn Phan Thủy Tiên
 */
 
 #include <Arduino.h>
-#include <Wire.h>
+#include <Wire.h>s
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 #include <DHT.h>
