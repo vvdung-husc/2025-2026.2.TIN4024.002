@@ -1,6 +1,7 @@
 /*
 THÔNG TIN NHÓM 05
 1. Nguyễn Thị Kim Chi
+2. Theppanya Lattana
 */
 #include <Arduino.h>
 #include <Wire.h>
