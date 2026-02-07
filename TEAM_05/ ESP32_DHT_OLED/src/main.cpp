@@ -1,5 +1,6 @@
 /*
 THÔNG TIN NHÓM 05
+1. Nguyễn Thị Kim Chi
 */
 #include <Arduino.h>
 #include <Wire.h>
