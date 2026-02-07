@@ -75,11 +75,11 @@
     ["r1:2", "esp:4", "red", ["h0", "v37.2"]],
     ["dht1:VCC", "esp:3V3", "red", ["v0", "h-240"]],
     ["dht1:SDA", "esp:16", "green", ["v0"]],
-    ["dht1:GND", "esp:5", "black", ["v0"]],
     ["oled1:VCC", "esp:3V3", "red", ["v-19.2", "h192.15"]],
     ["oled1:GND", "esp:GND.1", "black", ["v-28.8", "h182.4", "v182.4"]],
     ["oled1:SDA", "esp:13", "green", ["v-48", "h124.87", "v211.2"]],
-    ["oled1:SCL", "esp:12", "green", ["v-38.4", "h153.9", "v182.4"]]
+    ["oled1:SCL", "esp:12", "green", ["v-38.4", "h153.9", "v182.4"]],
+    ["dht1:GND", "esp:GND.3", "black", ["v172.8", "h-153.6"]]
   ],
   "dependencies": {}
 }
