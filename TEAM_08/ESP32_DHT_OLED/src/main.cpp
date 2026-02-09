@@ -2,6 +2,8 @@
 THÔNG TIN NHÓM 8
 1. Lê Phước Phúc - 22T1020700
 2. Lê Văn Hoàng Thái - 22T1020417
+3. Mai Văn Linh - 22T1020650
+4. Hoàng Phi Long - 22T1020217
 */
 #include <Arduino.h>
 #include <Wire.h>
