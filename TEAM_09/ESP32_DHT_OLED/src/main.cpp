@@ -4,6 +4,7 @@ THÔNG TIN NHÓM 9
 2. Nguyễn Gia Huy
 3. Nguyễn Lê Bá Minh
 4. Nguyễn Xuân Minh Hiếu
+5. Nguyễn Nhật Hào
 */
 
 #include "main.h"
