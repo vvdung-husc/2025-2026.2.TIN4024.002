@@ -65,6 +65,7 @@
 ![](https://raw.githubusercontent.com/vvdung/storage/refs/heads/main/IOT/traffic_blynk_1.png)
 
 + [***Đính kèm ảnh của mobile và web lên github***](https://raw.githubusercontent.com/vvdung/storage/refs/heads/main/IOT/mobile_esp32_dht.png)
+
 	> Ảnh phải có tên của cá nhân trong ứng dụng
 
 -------------------------------
