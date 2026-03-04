@@ -91,7 +91,7 @@
 
 ## [***3. Dự án - DHT_OLED (Theo nhóm, hạn cuối 09/02/2026)***](https://github.com/vvdung-husc/2025-2026.2.TIN4024.002/blob/main/Team_DHT_OLED.md)
 
-## [***4. Dự án - BLYNK_DHT***](https://github.com/vvdung-husc/2025-2026.2.TIN4024.002/edit/main/README.md#--blynk--traffic--dht-sensor)
+## [***4. Dự án - BLYNK_DHT***](https://github.com/vvdung-husc/2025-2026.2.TIN4024.002/blob/main/README.md#--blynk--traffic--dht-sensor)
 
 -------------------------------
 
