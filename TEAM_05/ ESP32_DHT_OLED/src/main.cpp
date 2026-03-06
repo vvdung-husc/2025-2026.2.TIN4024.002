@@ -2,6 +2,8 @@
 THÔNG TIN NHÓM 05
 1. Nguyễn Thị Kim Chi
 2. Theppanya Lattana
+3. Nguyễn Trung 
+4. Lê Hải Kiều Linh
 */
 #include <Arduino.h>
 #include <Wire.h>

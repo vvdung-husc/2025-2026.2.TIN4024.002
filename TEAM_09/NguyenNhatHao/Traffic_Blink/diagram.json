@@ -1,0 +1,122 @@
+{
+    "version": 1,
+    "author": "Nguyễn Nhật Hào",
+    "editor": "wokwi",
+    "parts": [
+        {
+            "type": "board-esp32-devkit-c-v4",
+            "id": "esp",
+            "top": 40,
+            "left": -42,
+            "attrs": {}
+        },
+        {
+            "type": "wokwi-led",
+            "id": "red_led",
+            "top": -50,
+            "left": 155,
+            "attrs": { "color": "red" }
+        },
+        {
+            "type": "wokwi-led",
+            "id": "yellow_led",
+            "top": 0,
+            "left": 155,
+            "attrs": { "color": "yellow" }
+        },
+        {
+            "type": "wokwi-led",
+            "id": "green_led",
+            "top": 50,
+            "left": 155,
+            "attrs": { "color": "green" }
+        },
+        {
+            "type": "wokwi-resistor",
+            "id": "r1",
+            "top": -35,
+            "left": 130,
+            "attrs": { "value": "220" }
+        },
+        {
+            "type": "wokwi-resistor",
+            "id": "r2",
+            "top": 15,
+            "left": 130,
+            "attrs": { "value": "220" }
+        },
+        {
+            "type": "wokwi-resistor",
+            "id": "r3",
+            "top": 65,
+            "left": 130,
+            "attrs": { "value": "220" }
+        },
+        {
+            "type": "wokwi-button",
+            "id": "button",
+            "top": -80,
+            "left": 50,
+            "attrs": { "bounce": "1" }
+        },
+        {
+            "type": "wokwi-tm1637",
+            "id": "tm",
+            "top": 100,
+            "left": 160,
+            "attrs": {}
+        },
+        {
+            "type": "wokwi-photoresistor-sensor",
+            "id": "ldr",
+            "top": 120,
+            "left": -50,
+            "attrs": {}
+        },
+        {
+            "type": "wokwi-led",
+            "id": "street_led",
+            "top": 130,
+            "left": 255,
+            "attrs": { "color": "white" }
+        },
+        {
+            "type": "wokwi-resistor",
+            "id": "r4",
+            "top": 145,
+            "left": 230,
+            "attrs": { "value": "220" }
+        }
+    ],
+    "connections": [
+        ["esp:23", "r1:2", "green", []],
+        ["r1:1", "red_led:A", "green", []],
+        ["red_led:C", "esp:GND.2", "black", []],
+
+        ["esp:22", "r2:2", "gold", []],
+        ["r2:1", "yellow_led:A", "gold", []],
+        ["yellow_led:C", "esp:GND.2", "black", []],
+
+        ["esp:21", "r3:2", "lime", []],
+        ["r3:1", "green_led:A", "lime", []],
+        ["green_led:C", "esp:GND.2", "black", []],
+
+        ["esp:19", "tm:DIO", "purple", []],
+        ["esp:18", "tm:CLK", "blue", []],
+        ["tm:GND", "esp:GND.2", "black", []],
+        ["tm:VCC", "esp:3V3", "red", []],
+
+        ["button:1.l", "esp:5V", "red", []],
+        ["button:2.r", "esp:17", "orange", []],
+        ["button:1.r", "esp:GND.2", "black", []],
+
+        ["ldr:GND", "esp:GND.2", "black", []],
+        ["ldr:VCC", "esp:3V3", "red", []],
+        ["ldr:AO", "esp:34", "blue", []],
+
+        ["esp:4", "r4:2", "white", []],
+        ["r4:1", "street_led:A", "white", []],
+        ["street_led:C", "esp:GND.2", "black", []]
+    ],
+    "dependencies": {}
+}
