@@ -1,0 +1,24 @@
+{
+	"folders": [
+		{
+			"path": "../../.."
+		},
+		{
+			"name": "Led_Blink",
+			"path": "../Le_Phuoc_Phuc/Led_Blink"
+		},
+		{
+			"name": "Traffic_Light",
+			"path": "../Le_Phuoc_Phuc/Traffic_Light"
+		},
+		{
+			"name": "ESP32_DHT_OLED",
+			"path": "."
+		},
+		{
+			"name": "Blynk",
+			"path": "../Le_Phuoc_Phuc/Blynk"
+		}
+	],
+	"settings": {}
+}
