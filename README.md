@@ -127,7 +127,7 @@
 
 ## [***4. Dự án - BLYNK_DHT***](https://github.com/vvdung-husc/2025-2026.2.TIN4024.002/blob/main/README.md#--blynk--traffic--dht-sensor)
 
-## [***5. Dự án - BLYNK_API***](https://github.com/vvdung-husc/2025-2026.2.TIN4024.002/blob/main/README.md#-%C4%91%C4%83ng-k%C3%BD-t%C3%A0i-kho%E1%BA%A3n-httpsopenweathermaporg-s%E1%BB%AD-d%E1%BB%A5ng-api-httpip4iothingsvngeo1-v%C3%A0-api-httpsapiopenweathermaporgdata25weatherlatlatlonlonappidapi-key-%C4%91%E1%BB%83-th%E1%BB%B1c-hi%E1%BB%87n-tr%C3%AAn-blynk-nh%C6%B0-h%C3%ACnh-sau)
+## [***5. Dự án - BLYNK_API***](https://github.com/vvdung-husc/2025-2026.2.TIN4024.002/tree/main?tab=readme-ov-file#-%C4%91%C4%83ng-k%C3%BD-t%C3%A0i-kho%E1%BA%A3n-httpsopenweathermaporg-s%E1%BB%AD-d%E1%BB%A5ng-api-httpip4iothingsvngeo1-v%C3%A0-api-httpsapiopenweathermaporgdata25weatherlatlatlonlonappidapi-key-%C4%91%E1%BB%83-th%E1%BB%B1c-hi%E1%BB%87n-tr%C3%AAn-blynk-nh%C6%B0-h%C3%ACnh-sau)
 -------------------------------
 
 ![](https://raw.githubusercontent.com/vvdung/storage/refs/heads/main/IOT/esp32-devkitC-v4-pinout.png)
