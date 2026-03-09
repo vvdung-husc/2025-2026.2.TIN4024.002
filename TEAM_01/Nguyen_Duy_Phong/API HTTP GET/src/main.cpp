@@ -3,7 +3,7 @@
 //Thay thông số BLYNK của bạn vào đây
 #define BLYNK_TEMPLATE_ID "TMPL6TjOIJrtk"
 #define BLYNK_TEMPLATE_NAME "API HTTP GET"
-#define BLYNK_AUTH_TOKEN "MPKSW3OzbmMeZ5L6JCDEPqF17y1pbWmY" 
+#define BLYNK_AUTH_TOKEN "MPKSW3OzbmMeZ5L6JCDEPqF17y1pbWmY"
 
 #include <WiFi.h>
 #include <WiFiClient.h>
@@ -80,7 +80,7 @@ void parseGeoInfo(String payload, IP4_Info& ipInfo) {
   Serial.printf("Latitude: %s\r\n", values[6].c_str());
 }
 
-#define OPENWEATHERMAP_KEY "8014dc58dd9ce037eb17b8bfa91fc963"
+#define OPENWEATHERMAP_KEY "YOUR_API_KEY"
 String urlWeather;
 
 //API Get http://ip4.iothings.vn/?geo=1
