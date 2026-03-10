@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "author": "TEAM 02",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-esp32-devkit-v1",
+      "id": "esp",
+      "top": 0,
+      "left": 0
+    },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht",
+      "top": -80,
+      "left": 100
+    },
+    {
+      "type": "wokwi-ssd1306",
+      "id": "oled",
+      "top": -120,
+      "left": -120
+    }
+  ],
+  "connections": [
+    [ "dht:VCC", "esp:3V3", "red" ],
+    [ "dht:GND", "esp:GND", "black" ],
+    [ "dht:SDA", "esp:15", "green" ],
+
+    [ "oled:VCC", "esp:3V3", "red" ],
+    [ "oled:GND", "esp:GND", "black" ],
+    [ "oled:SCL", "esp:22", "blue" ],
+    [ "oled:SDA", "esp:21", "green" ]
+  ]
+}
