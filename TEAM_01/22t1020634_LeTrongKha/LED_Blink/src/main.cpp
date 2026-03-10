@@ -23,8 +23,8 @@ void loop() {
   static unsigned long ulTimer = 0;
   static bool ledStatus = false;
 
-  // Non-blocking LED blink every 1000ms (1 second)
-  if (IsReady(ulTimer, 1000)) {
+  // Non-blocking LED blink every 500ms (0.5 second)
+  if (IsReady(ulTimer, 500)) {
     ledStatus = !ledStatus;
     Serial.printf("LED is %s\n", ledStatus ? "ON" : "OFF");
     digitalWrite(PIN_LED_RED, ledStatus ? HIGH : LOW);

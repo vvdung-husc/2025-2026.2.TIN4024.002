@@ -1,0 +1,85 @@
+{
+  "version": 1,
+  "author": "Bao Nguyen Quoc",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": 0,
+      "left": -62.36,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_green",
+      "top": -138,
+      "left": -63.4,
+      "attrs": { "color": "cyan" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_yellow",
+      "top": -138,
+      "left": -5.8,
+      "attrs": { "color": "yellow" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_red",
+      "top": -138,
+      "left": 42.2,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -162.9,
+      "left": 167.4,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 72,
+      "left": 66.65,
+      "rotate": 90,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 72,
+      "left": 37.85,
+      "rotate": 90,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "board-ssd1306",
+      "id": "oled1",
+      "top": -6.46,
+      "left": -297.37,
+      "attrs": { "i2cAddress": "0x3c" }
+    }
+  ],
+  "connections": [
+    ["esp:TX", "$serialMonitor:RX", "", []],
+    ["esp:RX", "$serialMonitor:TX", "", []],
+    ["led_green:C", "esp:GND.2", "black", ["v96", "h86.8"]],
+    ["led_yellow:C", "esp:GND.2", "black", ["v96", "h29.2"]],
+    ["led_red:C", "esp:GND.2", "black", ["v0"]],
+    ["led_green:A", "esp:15", "cyan", ["v86.4", "h86.4", "v182.4"]],
+    ["led_yellow:A", "r2:1", "yellow", ["v76.8", "h48"]],
+    ["r2:2", "esp:2", "yellow", ["h0", "v56.4"]],
+    ["led_red:A", "r1:1", "red", ["v67.2", "h28.8", "v76.8"]],
+    ["r1:2", "esp:4", "red", ["h0", "v37.2"]],
+    ["dht1:VCC", "esp:3V3", "red", ["v0", "h-240"]],
+    ["dht1:SDA", "esp:16", "green", ["v0"]],
+    ["dht1:GND", "esp:5", "black", ["v0"]],
+    ["oled1:VCC", "esp:3V3", "red", ["v-19.2", "h192.15"]],
+    ["oled1:GND", "esp:GND.1", "black", ["v-28.8", "h182.4", "v182.4"]],
+    ["oled1:SDA", "esp:13", "green", ["v-48", "h124.87", "v211.2"]],
+    ["oled1:SCL", "esp:12", "green", ["v-38.4", "h153.9", "v182.4"]]
+  ],
+  "dependencies": {}
+}

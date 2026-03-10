@@ -4,13 +4,27 @@
 **Lớp:** TIN4024.002  
 **Năm học:** 2025-2026 Học kỳ 2
 
+## Cấu trúc thư mục
+
+```
+22t1020634_LeTrongKha/
+├── LED_Blink/          # Dự án LED nhấp nháy
+│   ├── src/            # Source code
+│   ├── diagram.json    # Sơ đồ mạch Wokwi
+│   └── ...            # Các file PlatformIO
+├── scripts/            # Scripts hỗ trợ
+│   ├── auto_push.bat   # Script tự động push
+│   └── README.md       # Hướng dẫn scripts
+└── README.md          # File này
+```
+
 ## Dự án 1: LED Blink
 
 ### Mô tả
 Dự án cơ bản về điều khiển đèn LED nhấp nháy sử dụng vi mạch ESP32.
 
 ### Tính năng
-- Đèn LED đỏ nhấp nháy với chu kỳ 1 giây (bật 1s, tắt 1s)
+- Đèn LED đỏ nhấp nháy với chu kỳ 0.5 giây (bật 0.5s, tắt 0.5s)
 - Sử dụng phương pháp non-blocking để không làm treo chương trình
 - Hiển thị trạng thái LED qua Serial Monitor
 
@@ -52,7 +66,7 @@ void loop() {
   static unsigned long ulTimer = 0;
   static bool ledStatus = false;
 
-  if (IsReady(ulTimer, 1000)) {
+  if (IsReady(ulTimer, 500)) {
     ledStatus = !ledStatus;
     Serial.printf("LED is %s\n", ledStatus ? "ON" : "OFF");
     digitalWrite(PIN_LED_RED, ledStatus ? HIGH : LOW);

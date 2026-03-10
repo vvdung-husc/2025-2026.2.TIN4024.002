@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "author": "Phan Bá Bảo Đăng",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": 140,
+      "left": 180
+    },
+
+    { "type": "wokwi-led", "id": "led_red", "top": 80, "left": 420, "attrs": { "color": "red" } },
+    { "type": "wokwi-led", "id": "led_yellow", "top": 140, "left": 420, "attrs": { "color": "yellow" } },
+    { "type": "wokwi-led", "id": "led_green", "top": 200, "left": 420, "attrs": { "color": "limegreen" } },
+    { "type": "wokwi-led", "id": "led_blue", "top": 260, "left": 420, "attrs": { "color": "blue" } },
+
+    { "type": "wokwi-resistor", "id": "r1", "top": 80, "left": 360, "attrs": { "value": "330" } },
+    { "type": "wokwi-resistor", "id": "r2", "top": 140, "left": 360, "attrs": { "value": "330" } },
+    { "type": "wokwi-resistor", "id": "r3", "top": 200, "left": 360, "attrs": { "value": "330" } },
+
+    {
+      "type": "wokwi-tm1637-7segment",
+      "id": "tm",
+      "top": 60,
+      "left": -40
+    },
+
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn",
+      "top": 260,
+      "left": -40
+    }
+  ],
+
+  "connections": [
+    ["esp:25", "r1:1", "red"],
+    ["r1:2", "led_red:A", "red"],
+    ["led_red:C", "esp:GND", "black"],
+
+    ["esp:33", "r2:1", "yellow"],
+    ["r2:2", "led_yellow:A", "yellow"],
+    ["led_yellow:C", "esp:GND", "black"],
+
+    ["esp:32", "r3:1", "limegreen"],
+    ["r3:2", "led_green:A", "limegreen"],
+    ["led_green:C", "esp:GND", "black"],
+
+    ["esp:21", "led_blue:A", "blue"],
+    ["led_blue:C", "esp:GND", "black"],
+
+    ["tm:CLK", "esp:15", "green"],
+    ["tm:DIO", "esp:2", "green"],
+    ["tm:VCC", "esp:5V", "red"],
+    ["tm:GND", "esp:GND", "black"],
+
+    ["btn:1.l", "esp:GND", "black"],
+    ["btn:2.l", "esp:23", "blue"]
+  ]
+}
