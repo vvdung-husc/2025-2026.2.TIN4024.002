@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "author": "Trung",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 100, "left": 150 },
+
+    { "type": "wokwi-tm1637-7segment", "id": "display", "top": -20, "left": 180 },
+
+    { "type": "wokwi-led", "id": "red", "top": 50, "left": 420, "attrs": { "color": "red" } },
+    { "type": "wokwi-led", "id": "yellow", "top": 100, "left": 420, "attrs": { "color": "yellow" } },
+    { "type": "wokwi-led", "id": "green", "top": 150, "left": 420, "attrs": { "color": "green" } },
+    { "type": "wokwi-led", "id": "blue", "top": 200, "left": 420, "attrs": { "color": "blue" } },
+
+    { "type": "wokwi-resistor", "id": "r1", "top": 50, "left": 380, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "r2", "top": 100, "left": 380, "attrs": { "value": "220" } },
+
+    { "type": "wokwi-pushbutton", "id": "btn", "top": 220, "left": 300 },
+
+    { "type": "wokwi-photoresistor-sensor", "id": "ldr", "top": 220, "left": 40 }
+  ],
+
+  "connections": [
+
+    ["esp:25","r1:1","green"],
+    ["r1:2","red:A","green"],
+    ["red:C","esp:GND","black"],
+
+    ["esp:26","r2:1","green"],
+    ["r2:2","yellow:A","green"],
+    ["yellow:C","esp:GND","black"],
+
+    ["esp:27","green:A","green"],
+    ["green:C","esp:GND","black"],
+
+    ["esp:14","blue:A","green"],
+    ["blue:C","esp:GND","black"],
+
+    ["btn:1","esp:33","blue"],
+    ["btn:2","esp:GND","black"],
+
+    ["display:CLK","esp:18","green"],
+    ["display:DIO","esp:19","green"],
+    ["display:VCC","esp:3V3","red"],
+    ["display:GND","esp:GND","black"],
+
+    ["ldr:VCC","esp:3V3","red"],
+    ["ldr:GND","esp:GND","black"],
+    ["ldr:AO","esp:34","green"]
+  ]
+}
