@@ -61,6 +61,11 @@
 
 [Telegram IoT - Link Testing](https://t.me/+xwMWxFovgndmN2U1)
 
+### Cách lấy ID GROUP
+[https://api.telegram.org/botTOKEN/getUpdates](https://api.telegram.org/bot<TOKEN>/getUpdates)
+
+>***Thay TOKEN bằng token của bot - có bot ở phía trước***
+
 ### - [Esp32 |  TELEGRAM BOT (***mã nguồn minh họa***)](https://wokwi.com/projects/425361659331202049)
 
 #### Tham khảo
