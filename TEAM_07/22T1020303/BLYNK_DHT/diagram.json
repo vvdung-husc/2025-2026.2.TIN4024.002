@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "author": "Anonymous",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 50, "left": 0 },
+    { "type": "wokwi-dht22", "id": "dht", "top": 200, "left": 150 },
+    { "type": "wokwi-led", "id": "led", "top": 150, "left": 80, "attrs": { "color": "blue" } },
+    { "type": "wokwi-tm1637-7segment", "id": "display", "top": -100, "left": 50 },
+    { "type": "wokwi-pushbutton", "id": "btn", "top": 100, "left": 150, "attrs": { "color": "blue" } }
+  ],
+  "connections": [
+    [ "esp:GND.1", "dht:GND", "black", [ "v0" ] ],
+    [ "esp:3V3", "dht:VCC", "red", [ "v0" ] ],
+    [ "esp:D15", "dht:SDA", "green", [ "v0" ] ],
+    [ "esp:D2", "led:A", "blue", [ "v0" ] ],
+    [ "esp:GND.1", "led:K", "black", [ "v0" ] ],
+    [ "esp:D18", "display:CLK", "green", [ "v0" ] ],
+    [ "esp:D19", "display:DIO", "green", [ "v0" ] ],
+    [ "display:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "display:GND", "esp:GND.1", "black", [ "v0" ] ]
+  ]
+}
