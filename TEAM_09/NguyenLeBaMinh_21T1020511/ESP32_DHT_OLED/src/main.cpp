@@ -1,7 +1,5 @@
-/*
-THÔNG TIN NHÓM 4
-1. Nguyễn Quốc Bảo
-*/
+
+
 #include <Arduino.h>
 #include <Wire.h>
 #include <Adafruit_GFX.h>
