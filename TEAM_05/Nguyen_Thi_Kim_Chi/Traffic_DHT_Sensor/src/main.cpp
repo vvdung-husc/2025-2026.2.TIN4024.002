@@ -48,7 +48,7 @@ BLYNK_WRITE(V1) {
 }
 
 BLYNK_CONNECTED() {
-  Blynk.virtualWrite(V4, "Hồ Thị Thanh Bình");
+  Blynk.virtualWrite(V4, "Nguyễn Thị Kim Chi");
   Blynk.syncVirtual(V1);
   Serial.println(">>> ĐÃ KẾT NỐI BLYNK!");
 }
