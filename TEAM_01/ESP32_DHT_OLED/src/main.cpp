@@ -1,13 +1,13 @@
 /*
 THÔNG TIN NHÓM 1
-1. Đào Hữu Khánh 
-2. Trần Thị Như Sang
-3. Nguyễn Duy Phong
-4. Lê Trọng Kha 
-5. Lê Quang Duy 
+1. Đào Hữu Khánh
+2. Lê Quang Duy
+3. Trần Thị Như Sang
+4. Nguyễn Duy Phong
+5. Lê Trọng Kha
 */
 
-#include  <Arduino.h>
+#include <Arduino.h>
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
@@ -227,6 +227,7 @@ void updateDisplay() {
   display.print(tempIcon);
   display.print(" ");
   display.print(tempStatus);
+  
   display.display();
 }
 
