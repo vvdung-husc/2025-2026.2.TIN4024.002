@@ -1,6 +1,6 @@
-#define BLYNK_TEMPLATE_ID "TMPL66SmDhvoB"
+#define BLYNK_TEMPLATE_ID "TMPL6I_nE1STD"
 #define BLYNK_TEMPLATE_NAME "ESP32 LED TM1637"
-#define BLYNK_AUTH_TOKEN "UYJf9l6YuW_A_zybmpbsI_UY1Zffmp3V"
+#define BLYNK_AUTH_TOKEN "j00TH8UUM40C-tyl0nE0zTQK5aSZAcYy"
 
 #include <Arduino.h>
 #include <WiFi.h>
@@ -48,7 +48,7 @@ BLYNK_WRITE(V1) {
 }
 
 BLYNK_CONNECTED() {
-  Blynk.virtualWrite(V4, "Nguyễn Thị Kim Chi");
+  Blynk.virtualWrite(V4, "Lê Hải Kiều Linh");
   Blynk.syncVirtual(V1);
   Serial.println(">>> ĐÃ KẾT NỐI BLYNK!");
 }
