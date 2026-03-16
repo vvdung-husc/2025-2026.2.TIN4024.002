@@ -18,7 +18,6 @@
 
 // Thay KEY của bạn vào đây (đã sửa lỗi dư dấu chấm phẩy)
 #define OPENWEATHERMAP_KEY "YOUR_API_KEY"
-//#define OPENWEATHERMAP_KEY "e8ad54d7b94e1f1ebd75c2467cdab1b8"
 
 //Cấu trúc lưu thông tin IPv4, lat, long
 struct IP4_Info{
