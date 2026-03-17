@@ -17,7 +17,7 @@
 #define WIFI_CHANNEL 6
 
 // Thay KEY của bạn vào đây (đã sửa lỗi dư dấu chấm phẩy)
-#define OPENWEATHERMAP_KEY "73815d0f0c964cb8451db3f4401492b3"
+#define OPENWEATHERMAP_KEY ""
 
 //Cấu trúc lưu thông tin IPv4, lat, long
 struct IP4_Info{
