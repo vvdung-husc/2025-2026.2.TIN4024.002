@@ -1,8 +1,6 @@
 /*
-  THÔNG TIN NHÓM 05
-  
-  1. Nguyễn Trung
-  2. Lê Hai Kiều Linh
+  THÔNG TIN NHÓM 09
+  1. Nguyễn Đăng Khôi
 */
 
 #include <Arduino.h>
@@ -10,15 +8,15 @@
 #include <WiFiClientSecure.h>
 
 // --- BLYNK CONFIG ---
-#define BLYNK_TEMPLATE_ID "TMPL6aF7y2BZF"
-#define BLYNK_TEMPLATE_NAME "BlynkTelegram"
-#define BLYNK_AUTH_TOKEN "9bpUUTTjZX9jSwDwrdV-uiVLRysOef_e"
+#define BLYNK_TEMPLATE_ID ""
+#define BLYNK_TEMPLATE_NAME ""
+#define BLYNK_AUTH_TOKEN ""
 #include <BlynkSimpleEsp8266.h>
 
 // --- TELEGRAM CONFIG ---
 #include <UniversalTelegramBot.h>
-#define BOTtoken "THAY_BOT_TOKEN_TELEGRAM_VAO_DAY"
-#define GROUP_ID "THAY_GROUP_ID_VAO_DAY" // Nhớ có dấu trừ ở trước nếu là ID nhóm
+#define BOTtoken ""
+#define GROUP_ID ""
 
 // --- SENSOR CONFIG ---
 #include <Wire.h>
@@ -107,7 +105,7 @@ void setup() {
   Blynk.begin(BLYNK_AUTH_TOKEN, ssid, password);
   Serial.println("Connected!");
 
-  bot.sendMessage(GROUP_ID, "✅ Hệ thống IoT - Team 05 đã khởi động!", "");
+  bot.sendMessage(GROUP_ID, "✅ Hệ thống IoT - Team 09 đã khởi động!", "");
 }
 
 void loop() {
