@@ -2,94 +2,51 @@
  * THÔNG TIN NHÓM XY.002
  * 1. Nguyễn Văn Bình
  * 2. Lê Nguyễn Hương Nguyên
- * 3. ...
  */
 
+// --- BẮT BUỘC ĐIỀN SAU KHI CÓ TÀI KHOẢN BLYNK ---
+#define BLYNK_TEMPLATE_ID "TMPL6xQMOn5tP"
+#define BLYNK_TEMPLATE_NAME "ESP8266 BLYNK TELEGRAM"
+#define BLYNK_AUTH_TOKEN "DIEN_TOKEN_CUA_BAN"
+
 #include <Arduino.h>
-
-// Tự động chọn thư viện WiFi theo Board
-#ifdef ESP32
-  #include <WiFi.h>
-  #include <WiFiClientSecure.h>
-  #include <BlynkSimpleEsp32.h>
-#else
-  #include <ESP8266WiFi.h>
-  #include <WiFiClientSecure.h>
-  #include <BlynkSimpleEsp8266.h>
-#endif
-
-#include <UniversalTelegramBot.h>
-#include <ArduinoJson.h>
+#include <ESP8266WiFi.h>
+#include <BlynkSimpleEsp8266.h>
 #include <DHT.h>
-#include <Adafruit_SSD1306.h>
+#include <TM1637Display.h> // Dùng thư viện này thay cho OLED nếu bạn dùng màn hình 7 đoạn như trong hình
 
 // --- CẤU HÌNH ---
-char auth[] = "TOKEN_BLYNK_CUA_BAN";
+char auth[] = BLYNK_AUTH_TOKEN;
 char ssid[] = "Wokwi-GUEST"; 
 char pass[] = "";
-#define BOTtoken "TOKEN_TELEGRAM_CUA_BAN"
 
-#define DHTPIN 15
-#define DHTTYPE DHT22
-#define LED_PIN 2
+#define DHTPIN 15 // Chân D8 trên NodeMCU
+#define LED_PIN 2 // Chân LED tích hợp
+#define CLK 14    // Chân D5 cho màn hình 7 đoạn
+#define DIO 12    // Chân D6 cho màn hình 7 đoạn
 
-DHT dht(DHTPIN, DHTTYPE);
-Adafruit_SSD1306 display(128, 64, &Wire, -1);
-WiFiClientSecure client;
-UniversalTelegramBot bot(BOTtoken, client);
+DHT dht(DHTPIN, DHT22);
+TM1637Display display(CLK, DIO);
 BlynkTimer timer;
 
-// Hàm gửi dữ liệu lên Blynk và OLED
 void sendSensorData() {
-  float t = dht.readTemperature();
-  float h = dht.readHumidity();
-  int gas = random(100, 500); // Sinh ngẫu nhiên theo yêu cầu
+    float t = dht.readTemperature();
+    if (isnan(t)) return;
 
-  Blynk.virtualWrite(V1, t); // Nhiệt độ
-  Blynk.virtualWrite(V2, h); // Độ ẩm
-  Blynk.virtualWrite(V3, gas); // Khí Gas
-  Blynk.virtualWrite(V4, millis() / 1000); // Uptime
-
-  display.clearDisplay();
-  display.setCursor(0,0);
-  display.printf("Temp: %.1f C\nHum: %.1f %%\nGas: %d\nUptime: %lds", t, h, gas, millis()/1000);
-  display.display();
-}
-
-// Điều khiển LED từ Blynk
-BLYNK_WRITE(V0) {
-  digitalWrite(LED_PIN, param.asInt());
-}
-
-// Xử lý Telegram
-void handleTelegram() {
-  int numNewMessages = bot.getUpdates(bot.last_message_received + 1);
-  for (int i = 0; i < numNewMessages; i++) {
-    String text = bot.messages[i].text;
-    String chat_id = bot.messages[i].chat_id;
-
-    if (text == "/led_on") { digitalWrite(LED_PIN, HIGH); bot.sendMessage(chat_id, "LED ON"); }
-    if (text == "/led_off") { digitalWrite(LED_PIN, LOW); bot.sendMessage(chat_id, "LED OFF"); }
-    if (text == "/led_status") { bot.sendMessage(chat_id, digitalRead(LED_PIN) ? "LED is ON" : "LED is OFF"); }
-    if (text == "/get_weather") { 
-      bot.sendMessage(chat_id, "Temp: " + String(dht.readTemperature()) + "C"); 
-    }
-  }
+    Blynk.virtualWrite(V1, t); // Gửi nhiệt độ lên Blynk
+    display.showNumberDec(t);  // Hiển thị lên màn hình 4 số
 }
 
 void setup() {
-  pinMode(LED_PIN, OUTPUT);
-  dht.begin();
-  display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
-  
-  Blynk.begin(auth, ssid, pass);
-  client.setInsecure(); // Cần thiết cho Telegram
-  timer.setInterval(2000L, sendSensorData);
+    pinMode(LED_PIN, OUTPUT);
+    dht.begin();
+    display.setBrightness(0x0f);
+    
+    Blynk.begin(auth, ssid, pass);
+    timer.setInterval(2000L, sendSensorData);
 }
 
 void loop() {
-  Blynk.run();
-  timer.run();
-  static unsigned long lastBot;
-  if (millis() - lastBot > 1000) { handleTelegram(); lastBot = millis(); }
+    Blynk.run();
+    timer.run();
 }
