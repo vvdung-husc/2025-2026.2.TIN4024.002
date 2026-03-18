@@ -1,64 +1,65 @@
 #include <Arduino.h>
 #include <U8g2lib.h>
 #include <DHT.h>
+#include <Wire.h>
 
-// 1. Cấu hình Màn hình OLED SH1106 (SDA = D2, SCL = D1)
-U8G2_SH1106_128X64_NONAME_F_HW_I2C u8g2(U8G2_R0, /* reset=*/ U8X8_PIN_NONE);
+// 1. Cấu hình LED trên Board (D4 - chân 2 của ESP8266)
+const int LED_PIN = 2; 
 
-// 2. Cấu hình Cảm biến DHT11 (Chân D3)
-#define DHTPIN D3
+// 2. Cấu hình DHT11 (Chân D3)
+#define DHTPIN 0  // D3 tương ứng chân GPIO 0
 #define DHTTYPE DHT11
 DHT dht(DHTPIN, DHTTYPE);
 
-// 3. Chân cảm biến Gas MQ2 (Chân A0)
+// 3. Cấu hình Cảm biến GAS (Chân A0)
 #define GAS_PIN A0
 
+// 4. Cấu hình OLED SH1106 (SDA=D2, SCL=D1)
+U8G2_SH1106_128X64_NONAME_F_HW_I2C u8g2(U8G2_R0, /* reset=*/ U8X8_PIN_NONE);
+
 void setup() {
-  // Khởi tạo Serial để debug
   Serial.begin(115200);
   
-  // Khởi tạo OLED
-  u8g2.begin();
+  // Khởi tạo LED
+  pinMode(LED_PIN, OUTPUT);
   
   // Khởi tạo DHT
   dht.begin();
   
-  // Khởi tạo đèn LED trên Board (D4 hoặc D0)
-  pinMode(LED_BUILTIN, OUTPUT);
+  // Khởi tạo OLED
+  u8g2.begin();
 }
 
 void loop() {
-  // Nhấp nháy đèn LED (Yêu cầu 2)
-  digitalWrite(LED_BUILTIN, LOW);  // Bật (Logic âm trên ESP8266)
-  delay(200);
-  digitalWrite(LED_BUILTIN, HIGH); // Tắt
-  delay(200);
-
-  // Đọc nhiệt độ, độ ẩm (Yêu cầu 3)
+  // --- Điều khiển LED nhấp nháy ---
+  digitalWrite(LED_PIN, LOW); // Bật LED (ESP8266 bật ở mức LOW)
+  
+  // --- Đọc cảm biến ---
   float h = dht.readHumidity();
   float t = dht.readTemperature();
-
-  // Đọc khí GAS (Yêu cầu 4)
   int gasValue = analogRead(GAS_PIN);
 
-  // Hiển thị lên màn hình OLED (Yêu cầu 5)
+  // --- Hiển thị OLED ---
   u8g2.clearBuffer();
-  u8g2.setFont(u8g2_font_ncenB08_tr); 
+  u8g2.setFont(u8g2_font_ncenB08_tr);
   
-  u8g2.setCursor(0, 15);
+  u8g2.drawStr(0, 15, "--- ESP8266 MONITOR ---");
+  
+  // Hiển thị Nhiệt độ
+  u8g2.setCursor(0, 35);
   u8g2.print("Nhiet do: "); u8g2.print(t); u8g2.print(" C");
   
-  u8g2.setCursor(0, 35);
+  // Hiển thị Độ ẩm
+  u8g2.setCursor(0, 50);
   u8g2.print("Do am: "); u8g2.print(h); u8g2.print(" %");
   
-  u8g2.setCursor(0, 55);
+  // Hiển thị Khí Gas
+  u8g2.setCursor(0, 64);
   u8g2.print("Khi GAS: "); u8g2.print(gasValue);
-  
-  u8g2.sendBuffer(); // Gửi dữ liệu ra màn hình
 
-  // In ra Serial để kiểm tra trên máy tính
-  Serial.print("Temp: "); Serial.print(t);
-  Serial.print(" - Gas: "); Serial.println(gasValue);
+  u8g2.sendBuffer();
 
-  delay(1000); // Đợi 1 giây trước khi lặp lại
+  delay(500);
+  digitalWrite(LED_PIN, HIGH); // Tắt LED
+  delay(500);
 }
