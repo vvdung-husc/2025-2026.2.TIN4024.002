@@ -1,3 +1,9 @@
+/*
+ * THÔNG TIN NHÓM 04.002
+ * 1. Nguyễn Quốc Bảo
+ * 2. Trần Đức THăng
+
+ */
 #include <Arduino.h>
 
 // put function declarations here:
