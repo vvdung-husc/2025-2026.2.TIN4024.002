@@ -2,7 +2,7 @@
   THÔNG TIN NHÓM 05
   
   1. Nguyễn Trung
-
+  2. Lê Hai Kiều Linh
 */
 
 #include <Arduino.h>
