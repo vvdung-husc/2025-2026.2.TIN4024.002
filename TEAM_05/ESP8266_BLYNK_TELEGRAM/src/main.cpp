@@ -1,3 +1,8 @@
+/*
+THÔNG TIN NHÓM 05 
+
+1. Nguyễn Trung
+*/
 #include <Arduino.h>
 
 // put function declarations here:
