@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "../../.."
+		},
+		{
+			"name": "LED blink",
+			"path": "../../LED blink"
+		}
+	],
+	"settings": {}
+}
