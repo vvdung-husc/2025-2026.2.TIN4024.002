@@ -1,3 +1,5 @@
+#include <Arduino.h>
+
 /*
   ESP32 - Điều khiển LED qua Telegram + Cảnh báo chuyển động PIR
   - /start       : Hiển thị hướng dẫn
@@ -6,7 +8,7 @@
   - /get_state   : Lấy trạng thái đèn hiện tại
   - Tự động gửi cảnh báo khi PIR phát hiện chuyển động
 */
-#include <Arduino.h>
+
 #include <WiFi.h>
 #include <WiFiClientSecure.h>
 #include <UniversalTelegramBot.h>
@@ -16,8 +18,8 @@
 const char* ssid     = "Wokwi-GUEST";
 const char* password = "";
 
-#define BOTtoken  ""
-#define CHAT_ID   ""
+#define BOTtoken  "8791388409:AAEEa3QBAaCIAg3A6objo-nnsqyDpzYO2JA"
+#define CHAT_ID   "8540871369"
 
 // CHÂN GPIO
 const int PIN_PIR = 27;
@@ -43,6 +45,7 @@ void setLED(bool on) {
   ledState = on;
   digitalWrite(PIN_LED, on ? HIGH : LOW);
 }
+
 // Xử lý lệnh Telegram
 
 void handleNewMessages(int numNewMessages) {
