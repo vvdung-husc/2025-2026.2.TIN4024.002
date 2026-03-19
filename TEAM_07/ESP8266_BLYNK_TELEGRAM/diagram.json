@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "author": "Oanh Kieu",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 100, "left": 0, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht", "top": 250, "left": 180, "attrs": {} },
+    { "type": "wokwi-led", "id": "led", "top": -50, "left": 5, "attrs": { "color": "blue" } },
+    { "type": "wokwi-tm1637-7segment", "id": "display", "top": -120, "left": 150, "attrs": {} },
+    { "type": "wokwi-pushbutton", "id": "btn", "top": 300, "left": -50, "attrs": { "color": "blue" } }
+  ],
+  "connections": [
+    [ "esp:GND.1", "dht:GND", "black", [ "h-40", "v150", "h250" ] ],
+    [ "esp:3V3", "dht:VCC", "red", [ "h30", "v120", "h150" ] ],
+    [ "esp:D15", "dht:SDA", "green", [ "h60", "v130" ] ],
+
+    [ "esp:D2", "led:A", "blue", [ "v-120" ] ],
+    [ "esp:GND.1", "led:K", "black", [ "v-100", "h-30" ] ],
+
+    [ "esp:D18", "display:CLK", "orange", [ "v-180", "h120" ] ],
+    [ "esp:D19", "display:DIO", "gold", [ "v-200", "h150" ] ],
+    [ "display:VCC", "esp:3V3", "red", [ "h40", "v250", "h-180" ] ],
+    [ "display:GND", "esp:GND.1", "black", [ "h60", "v270", "h-220" ] ],
+
+    [ "esp:D5", "btn:2.1", "purple", [ "v150", "h-50" ] ],
+    [ "esp:GND.2", "btn:1.1", "black", [ "v130", "h-80" ] ]
+  ],
+  "dependencies": {}
+}
