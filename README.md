@@ -214,7 +214,7 @@
   - Điều khiển tắt/mở và nhận trạng thái ***(/led_on, /led_off, /led_status)*** đèn LED bằng lệnh nhập từ khung chat
   - Gửi lệnh ***(/get_weather)*** từ khung chat để nhận nhiệt độ, độ ẩm hiện tại. 
  5. ### Gửi đính kèm lên github 2 ảnh của Blynk (***web***) và Telegram (***với đầy đủ tên thành viên***)
- 6. ### **Nên sử dụng ESP32 để viết code mô phỏng trước và hoàn thiện trên ESP8266 tại LAB**
+ 6. ### **Nên sử dụng ESP32 (gồm các thiết bị tương tự trên ESP8266) để viết code mô phỏng trước và hoàn thiện trên ESP8266 tại LAB**
     
 -------------------------------
 
