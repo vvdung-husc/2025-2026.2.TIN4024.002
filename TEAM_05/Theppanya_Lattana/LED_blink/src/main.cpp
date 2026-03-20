@@ -1,35 +1,18 @@
 #include <Arduino.h>
 
-int red = 32;
-int yellow = 33;
-int green = 25;
+// put function declarations here:
+int myFunction(int, int);
 
 void setup() {
-  Serial.begin(115200);
-
-  pinMode(red, OUTPUT);
-  pinMode(yellow, OUTPUT);
-  pinMode(green, OUTPUT);
+  // put your setup code here, to run once:
+  int result = myFunction(2, 3);
 }
 
 void loop() {
+  // put your main code here, to run repeatedly:
+}
 
-  Serial.println("LED RED ON -> 5 Seconds");
-  digitalWrite(red, HIGH);
-  digitalWrite(yellow, LOW);
-  digitalWrite(green, LOW);
-  delay(5000);
-
-  Serial.println("LED YELLOW ON -> 3 Seconds");
-  digitalWrite(red, LOW);
-  digitalWrite(yellow, HIGH);
-  digitalWrite(green, LOW);
-  delay(3000);
-
-  Serial.println("LED GREEN ON -> 7 Seconds");
-  digitalWrite(red, LOW);
-  digitalWrite(yellow, LOW);
-  digitalWrite(green, HIGH);
-  delay(7000);
-
+// put function definitions here:
+int myFunction(int x, int y) {
+  return x + y;
 }
