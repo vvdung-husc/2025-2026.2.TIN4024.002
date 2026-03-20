@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "author": "Oanh Hồ",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp8266-nodemcu-v2", "id": "esp8266", "top": 0, "left": 0 },
+    { "type": "wokwi-oled-12864-sh1106", "id": "oled", "top": -220, "left": 150 },
+    { "type": "wokwi-dht11", "id": "dht", "top": -220, "left": -150 },
+    { "type": "wokwi-potentiometer", "id": "gas_sim", "top": 180, "left": 50, "attrs": { "label": "MQ2 Sensor" } }
+  ],
+  "connections": [
+    [ "esp8266:3V3.1", "oled:VCC", "red", [ "v0" ] ],
+    [ "esp8266:GND.1", "oled:GND", "black", [ "v0" ] ],
+    [ "esp8266:D2", "oled:SDA", "blue", [ "v0" ] ],
+    [ "esp8266:D1", "oled:SCL", "yellow", [ "v0" ] ],
+    [ "esp8266:3V3.2", "dht:VCC", "red", [ "v0" ] ],
+    [ "esp8266:GND.2", "dht:GND", "black", [ "v0" ] ],
+    [ "esp8266:D3", "dht:SDA", "green", [ "v0" ] ],
+    [ "esp8266:3V3.3", "gas_sim:VCC", "red", [ "v0" ] ],
+    [ "esp8266:GND.3", "gas_sim:GND", "black", [ "v0" ] ],
+    [ "esp8266:A0", "gas_sim:SIG", "orange", [ "v0" ] ]
+  ]
+}
