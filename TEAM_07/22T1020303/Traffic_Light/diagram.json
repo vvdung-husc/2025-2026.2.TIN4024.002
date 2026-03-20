@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "author": "22T1020303",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 110, "left": 100, "attrs": {} },
+    
+    { "type": "wokwi-led", "id": "ledR", "top": -40, "left": -20, "attrs": { "color": "red", "label": "Do" } },
+    { "type": "wokwi-led", "id": "ledY", "top": 10, "left": -20, "attrs": { "color": "yellow", "label": "Vang" } },
+    { "type": "wokwi-led", "id": "ledG", "top": 60, "left": -20, "attrs": { "color": "green", "label": "Xanh" } },
+    
+    { "type": "wokwi-resistor", "id": "rR", "top": -30, "left": 40, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "rY", "top": 20, "left": 40, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "rG", "top": 70, "left": 40, "attrs": { "value": "220" } },
+    
+    { "type": "wokwi-tm1637-7segment", "id": "sevseg", "top": -20, "left": 220, "attrs": {} },
+    
+    { "type": "wokwi-pushbutton", "id": "btn1", "top": 120, "left": 280, "attrs": { "color": "blue" } },
+    
+    { "type": "wokwi-led", "id": "ledP", "top": 180, "left": 280, "attrs": { "color": "blue", "label": "Di Bo" } },
+    
+    { "type": "wokwi-analog-sound-sensor", "id": "sound1", "top": 280, "left": -50, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    
+    [ "esp:GND.1", "ledR:C", "black", [ "v0" ] ],
+    [ "esp:GND.1", "ledY:C", "black", [ "v0" ] ],
+    [ "esp:GND.1", "ledG:C", "black", [ "v0" ] ],
+    
+    [ "esp:15", "rR:1", "red", [ "v-10", "h-110", "v-150", "h60" ] ],
+    [ "rR:2", "ledR:A", "red", [ "v0" ] ],
+    
+    [ "esp:2", "rY:1", "gold", [ "h-80", "v-80", "h60" ] ],
+    [ "rY:2", "ledY:A", "gold", [ "v0" ] ],
+    
+    [ "esp:4", "rG:1", "green", [ "h-60", "v-20", "h50" ] ],
+    [ "rG:2", "ledG:A", "green", [ "v0" ] ],
+    
+    [ "esp:GND.2", "sevseg:GND", "black", [ "v0", "h40", "v-140", "h65" ] ],
+    [ "esp:3V3", "sevseg:VCC", "red", [ "v0", "h30", "v-160", "h75" ] ],
+    [ "esp:21", "sevseg:DIO", "orange", [ "h0", "v-90", "h120" ] ],
+    [ "esp:22", "sevseg:CLK", "orange", [ "h0", "v-100", "h130" ] ],
+    
+    [ "esp:GND.2", "btn1:1.r", "black", [ "v20", "h140", "v-50" ] ],
+    [ "esp:18", "btn1:2.r", "blue", [ "h15", "v15", "h115" ] ],
+    
+    [ "esp:GND.2", "ledP:C", "black", [ "v20", "h130", "v60", "h50" ] ],
+    [ "esp:5", "ledP:A", "blue", [ "h30", "v60", "h130" ] ],
+    
+    [ "esp:GND.3", "sound1:GND", "black", [ "v30", "h-130" ] ],
+    [ "esp:3V3", "sound1:VCC", "red", [ "v40", "h-170", "v85" ] ],
+    [ "esp:34", "sound1:AO", "green", [ "v50", "h-170", "v50" ] ]
+  ],
+  "dependencies": {}
+}

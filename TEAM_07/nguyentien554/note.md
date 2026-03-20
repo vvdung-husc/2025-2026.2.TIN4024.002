@@ -1,0 +1,7 @@
+wokwi.toml
+diagram.json
+
+[wokwi]
+version = 1
+firmware = 'path-to-your-firmware.hex'
+elf = 'path-to-your-firmware.elf'

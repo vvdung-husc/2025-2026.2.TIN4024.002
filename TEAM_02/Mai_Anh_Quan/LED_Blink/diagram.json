@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "author": "Mai Anh Quan",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 0, "left": 0 },
+    { "type": "wokwi-led", "id": "led", "top": -30, "left": 100, "attrs": { "color": "red" } },
+    { "type": "wokwi-resistor", "id": "r1", "top": -10, "left": 60, "attrs": { "value": "220" } }
+  ],
+  "connections": [
+    [ "esp:2", "r1:1", "green" ],
+    [ "r1:2", "led:A", "green" ],
+    [ "led:C", "esp:GND", "black" ]
+  ]
+}
