@@ -18,6 +18,10 @@
 		{
 			"name": "Blynk",
 			"path": "../Le_Phuoc_Phuc/Blynk"
+		},
+		{
+			"name": "Telegram_Led",
+			"path": "../Le_Phuoc_Phuc/Telegram_Led"
 		}
 	],
 	"settings": {}
