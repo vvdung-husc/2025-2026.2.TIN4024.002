@@ -1,6 +1,7 @@
 /*
   THÔNG TIN NHÓM 09
   1. Nguyễn Đăng Khôi
+  2. Nguyễn Gia Huy
 */
 
 #include <Arduino.h>
