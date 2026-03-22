@@ -10,8 +10,8 @@
 #include <DHT.h>
 #include <TM1637Display.h>
 
-char ssid[] = "Ko co mang";
-char pass[] = "Brmilahud";
+char ssid[] = "Wokwi-GUEST";
+char pass[] = "";
 
 
 #define DHTPIN 16      
