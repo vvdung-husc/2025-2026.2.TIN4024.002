@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "author": "Lê Phước Phúc",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 38.4, "left": -71.96, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht1", "top": 125.1, "left": 129, "attrs": {} },
+    {
+      "type": "wokwi-tm1637-7segment",
+      "id": "sevseg1",
+      "top": -86.44,
+      "left": -98.57,
+      "attrs": { "color": "red" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:3V3", "dht1:VCC", "red", [ "h-28.65", "v220.8", "h259.2" ] ],
+    [ "esp:16", "dht1:SDA", "blue", [ "h67.2", "v124.8", "h47.9" ] ],
+    [ "esp:GND.3", "dht1:GND", "black", [ "h48", "v182.4", "h86.4" ] ],
+    [ "sevseg1:GND", "esp:GND.3", "black", [ "h9.6", "v144" ] ],
+    [ "sevseg1:VCC", "esp:5V", "red", [ "h19.2", "v316.8", "h-307.35" ] ],
+    [ "sevseg1:CLK", "esp:18", "green", [ "h38.4", "v201.6" ] ],
+    [ "sevseg1:DIO", "esp:19", "green", [ "h28.8", "v182.4" ] ]
+  ],
+  "dependencies": {}
+}
