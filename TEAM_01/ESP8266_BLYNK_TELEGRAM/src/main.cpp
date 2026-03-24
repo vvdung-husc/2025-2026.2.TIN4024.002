@@ -16,45 +16,45 @@ THÔNG TIN NHÓM 01
 #include <DHT.h>
 
 // ===== WIFI =====
-char ssid[] = "YOUR_WIFI";
-char pass[] = "YOUR_PASS";
+char ssid[] = "YOUR_WIFI";   // wifi
+char pass[] = "YOUR_PASS";   // pass
 
 // ===== BLYNK =====
-char auth[] = "YOUR_BLYNK_TOKEN";
+char auth[] = "YOUR_BLYNK_TOKEN"; // token
 
 // ===== TELEGRAM =====
-#define BOT_TOKEN "YOUR_BOT_TOKEN"
-#define CHAT_ID "YOUR_CHAT_ID"
+#define BOT_TOKEN "YOUR_BOT_TOKEN" // bot
+#define CHAT_ID "YOUR_CHAT_ID"     // chat
 
-WiFiClientSecure client;
-UniversalTelegramBot bot(BOT_TOKEN, client);
+WiFiClientSecure client;          // https
+UniversalTelegramBot bot(BOT_TOKEN, client); // telegram
 
 // ===== DHT =====
-#define DHTPIN D4
-#define DHTTYPE DHT11
+#define DHTPIN D4      // pin
+#define DHTTYPE DHT11  // loại
 DHT dht(DHTPIN, DHTTYPE);
 
 // ===== LED =====
 #define LED D2
-bool ledState = false;
+bool ledState = false; // trạng thái
 
 // ===== TIME =====
-unsigned long startTime;
+unsigned long startTime; // bắt đầu
 
 // ===== BLYNK =====
-BlynkTimer timer;
+BlynkTimer timer; // hẹn giờ
 
 // ===== SEND TELEGRAM =====
 void sendTelegram(String msg) {
-  bot.sendMessage(CHAT_ID, msg, "");
+  bot.sendMessage(CHAT_ID, msg, ""); // gửi
 }
 
 // ===== HANDLE TELEGRAM =====
 void handleTelegram() {
-  int numNewMessages = bot.getUpdates(bot.last_message_received + 1);
+  int numNewMessages = bot.getUpdates(bot.last_message_received + 1); // đọc tin
 
   for (int i = 0; i < numNewMessages; i++) {
-    String text = bot.messages[i].text;
+    String text = bot.messages[i].text; // nội dung
 
     if (text == "/led_on") {
       digitalWrite(LED, HIGH);
@@ -70,8 +70,8 @@ void handleTelegram() {
       sendTelegram(ledState ? "LED đang bật" : "LED đang tắt");
     }
     else if (text == "/get_weather") {
-      float t = dht.readTemperature();
-      float h = dht.readHumidity();
+      float t = dht.readTemperature(); // nhiệt độ
+      float h = dht.readHumidity();    // độ ẩm
 
       String msg = "🌡 Nhiệt độ: " + String(t) +
                    "\n💧 Độ ẩm: " + String(h);
@@ -82,15 +82,15 @@ void handleTelegram() {
 
 // ===== BLYNK LED CONTROL =====
 BLYNK_WRITE(V0) {
-  int value = param.asInt();
+  int value = param.asInt(); // đọc app
   digitalWrite(LED, value);
   ledState = value;
 }
 
 // ===== SEND DATA =====
 void sendData() {
-  float t = dht.readTemperature();
-  float h = dht.readHumidity();
+  float t = dht.readTemperature(); // đọc nhiệt
+  float h = dht.readHumidity();    // đọc ẩm
 
   // Nếu không có DHT → random
   if (isnan(t) || isnan(h)) {
@@ -98,7 +98,7 @@ void sendData() {
     h = random(60, 90);
   }
 
-  Blynk.virtualWrite(V1, t);
+  Blynk.virtualWrite(V1, t); // gửi Blynk
   Blynk.virtualWrite(V2, h);
 
   static float lastT = 0;
@@ -113,7 +113,7 @@ void sendData() {
 
 // ===== UPTIME =====
 void sendUptime() {
-  unsigned long uptime = (millis() - startTime) / 1000;
+  unsigned long uptime = (millis() - startTime) / 1000; // giây
   Blynk.virtualWrite(V3, uptime);
 }
 
@@ -123,20 +123,20 @@ void setup() {
   pinMode(LED, OUTPUT);
 
   WiFi.begin(ssid, pass);
-  client.setInsecure();
+  client.setInsecure(); // https
 
   Blynk.begin(auth, ssid, pass);
   dht.begin();
 
   startTime = millis();
 
-  timer.setInterval(5000L, sendData);
-  timer.setInterval(1000L, sendUptime);
+  timer.setInterval(5000L, sendData);   // 5s
+  timer.setInterval(1000L, sendUptime); // 1s
 }
 
 // ===== LOOP =====
 void loop() {
   Blynk.run();
   timer.run();
-  handleTelegram();
+  handleTelegram(); // xử lý bot
 }
