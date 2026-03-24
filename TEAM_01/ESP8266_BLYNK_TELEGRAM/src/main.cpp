@@ -29,7 +29,7 @@ char auth[] = "YOUR_BLYNK_TOKEN"; // token
 WiFiClientSecure client;          // https
 UniversalTelegramBot bot(BOT_TOKEN, client); // telegram
 
-// ===== DHT =====
+// === DHT ===
 #define DHTPIN D4      // pin
 #define DHTTYPE DHT11  // loại
 DHT dht(DHTPIN, DHTTYPE);
@@ -41,7 +41,7 @@ bool ledState = false; // trạng thái
 // ===== TIME =====
 unsigned long startTime; // bắt đầu
 
-// ===== BLYNK =====
+// === BLYNK ===
 BlynkTimer timer; // hẹn giờ
 
 // ===== SEND TELEGRAM =====
