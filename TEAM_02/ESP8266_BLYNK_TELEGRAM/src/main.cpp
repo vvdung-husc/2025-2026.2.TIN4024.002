@@ -1,10 +1,10 @@
-*
+/*
   THÔNG TIN NHÓM 02
   1. Mai Anh Quân
   2. Nguyễn Trọng Vĩ
   3. Lê Văn Quốc Dũng
   4. Nguyễn Văn Khải
-*
+*/
 
 
 #define BLYNK_TEMPLATE_ID "TMPL123456"
