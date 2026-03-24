@@ -1,7 +1,7 @@
 /*
 THÔNG TIN NHÓM 7
 1. Lê Công Mẫn
-2. 
+2. Võ Tiến Đạt
 3. 
 */
 
