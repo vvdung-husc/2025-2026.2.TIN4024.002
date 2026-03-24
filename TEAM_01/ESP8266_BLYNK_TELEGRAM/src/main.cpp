@@ -9,6 +9,35 @@
  * 5. Lê Quang Duy
  * ========================================
  *
+ * MÔ TẢ DỰ ÁN:
+ * Hệ thống IoT thông minh kết hợp Blynk và Telegram Bot
+ * để giám sát và điều khiển thiết bị từ xa
+ *
+ * CHỨC NĂNG CHÍNH:
+ * - Giám sát nhiệt độ, độ ẩm qua cảm biến DHT22
+ * - Phát hiện chuyển động qua cảm biến PIR
+ * - Đo nồng độ khí gas
+ * - Điều khiển LED và 2 Relay
+ * - Hiển thị thông tin trên màn hình OLED SSD1306
+ * - Điều khiển từ xa qua Blynk App
+ * - Nhận lệnh và gửi cảnh báo qua Telegram Bot
+ *
+ * LỆNH TELEGRAM:
+ * /start       - Hiển thị menu hướng dẫn
+ * /led_on      - Bật đèn LED
+ * /led_off     - Tắt đèn LED
+ * /led_status  - Kiểm tra trạng thái LED
+ * /get_weather - Lấy thông tin nhiệt độ, độ ẩm, khí gas
+ *
+ * CÔNG NGHỆ SỬ DỤNG:
+ * - ESP32 DevKit V4
+ * - Blynk IoT Platform
+ * - Telegram Bot API
+ * - DHT22 (Temperature & Humidity)
+ * - PIR Motion Sensor
+ * - SSD1306 OLED Display (I2C)
+ * - WiFi Communication
+ *
  * ⚠️  TRƯỚC MỖI LẦN CHẠY — mở trình duyệt vào link này để xoá tin cũ:
  * https://api.telegram.org/bot8674058851:AAGxER1vncD5YHzr0LZIl65AYq0Mnj0Q3XI/deleteWebhook?drop_pending_updates=true
  * Thấy {"ok":true} là được, rồi mới chạy Wokwi.
