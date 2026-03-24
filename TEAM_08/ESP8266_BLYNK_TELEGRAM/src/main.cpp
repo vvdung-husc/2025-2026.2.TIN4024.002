@@ -111,7 +111,7 @@ void handleNewMessages(int numNewMessages) {
       msg += "/led_off     - Tat den LED\n";
       msg += "/led_status  - Trang thai LED\n";
       msg += "/get_weather - Nhiet do & do am\n\n";
-      msg += "Team 01.002: Phong, Khanh, Sang, Kha, Duy";
+      msg += "Team 08.002: Thái, Long, Đạt, Phúc, Linh";
       bot.sendMessage(chat_id, msg, "");
     }
     else if (text == "/led_on") {
