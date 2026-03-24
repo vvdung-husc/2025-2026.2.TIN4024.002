@@ -1,6 +1,6 @@
-#define BLYNK_TEMPLATE_ID "TMPL6JTbTD8G"
-#define BLYNK_TEMPLATE_NAME "Lê Phước Phúc"
-#define BLYNK_AUTH_TOKEN "nkgtduxhkuOJEacMcOULbYa3swUwU7RT"
+#define BLYNK_TEMPLATE_ID "TMPL6NezR9rkf"
+#define BLYNK_TEMPLATE_NAME "DHT"
+#define BLYNK_AUTH_TOKEN "Bbsq-Y9Qjb9PFLX8Vjcttwk1ySkj9IOW"
 
 #include <WiFi.h>
 #include <BlynkSimpleEsp32.h>
