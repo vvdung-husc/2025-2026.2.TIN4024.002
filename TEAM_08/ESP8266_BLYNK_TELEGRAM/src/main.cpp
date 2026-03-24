@@ -3,7 +3,7 @@
  * DỰ ÁN: ESP8266_BLYNK_TELEGRAM
  * NHÓM 08.002
  * 1. Lê Văn Hoàng Thái - Telegram: @kierannn05
- * 2. Hoàng Phi Long - Telegram: @chocopie
+ * 2. Hoàng Phi Long - Telegram: @chocopaine
  * 3. Lê Phước Phúc - Telegram: @davidsea04
  * ========================================
  *
