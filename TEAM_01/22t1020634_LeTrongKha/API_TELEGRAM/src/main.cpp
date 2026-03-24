@@ -8,6 +8,8 @@
   - /led_off     : Tắt đèn LED
   - /get_state   : Lấy trạng thái đèn hiện tại
   - Tự động gửi cảnh báo khi PIR phát hiện chuyển động
+  
+  Hệ thống IoT điều khiển từ xa và giám sát an ninh thông qua Telegram Bot
 */
 
 #include <Arduino.h>

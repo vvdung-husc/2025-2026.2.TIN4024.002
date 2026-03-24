@@ -5,6 +5,8 @@ THÔNG TIN NHÓM 1
 3. Trần Thị Như Sang
 4. Nguyễn Duy Phong
 5. Lê Trọng Kha
+
+Dự án: Hệ thống giám sát nhiệt độ và độ ẩm với cảnh báo LED
 */
 
 #include <Arduino.h>

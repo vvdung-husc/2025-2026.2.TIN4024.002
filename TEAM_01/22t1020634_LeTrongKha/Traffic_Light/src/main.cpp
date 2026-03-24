@@ -9,6 +9,8 @@
  * - Nút nhấn: Bật/tắt hiển thị thời gian đếm ngược
  * - Cảm biến LDR: Bật/tắt đèn giao thông theo cường độ ánh sáng
  * - LED xanh dương: Đèn đường (tự động bật khi tối)
+ * 
+ * Mô phỏng hệ thống giao thông thông minh với khả năng tự động điều chỉnh theo môi trường
  */
 #include <Arduino.h>
 #include <TM1637Display.h>
