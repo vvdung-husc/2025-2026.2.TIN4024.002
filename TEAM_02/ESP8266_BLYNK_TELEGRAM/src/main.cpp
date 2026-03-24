@@ -1,3 +1,12 @@
+*
+  THÔNG TIN NHÓM 02
+  1. Mai Anh Quân
+  2. Nguyễn Trọng Vĩ
+  3. Lê Văn Quốc Dũng
+  4. Nguyễn Văn Khải
+*
+
+
 #define BLYNK_TEMPLATE_ID "TMPL123456"
 #define BLYNK_TEMPLATE_NAME "ESP8266_BLYNK_TELEGRAM"
 #include <ESP8266WiFi.h>
