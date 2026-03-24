@@ -34,7 +34,7 @@ UniversalTelegramBot bot(BOT_TOKEN, client); // telegram
 #define DHTTYPE DHT11  // loại
 DHT dht(DHTPIN, DHTTYPE);
 
-// ===== LED =====
+// ==== LED ====
 #define LED D2
 bool ledState = false; // trạng thái
 
@@ -49,7 +49,7 @@ void sendTelegram(String msg) {
   bot.sendMessage(CHAT_ID, msg, ""); // gửi
 }
 
-// ===== HANDLE TELEGRAM =====
+// ==== HANDLE TELEGRAM ====
 void handleTelegram() {
   int numNewMessages = bot.getUpdates(bot.last_message_received + 1); // đọc tin
 
@@ -87,7 +87,7 @@ BLYNK_WRITE(V0) {
   ledState = value;
 }
 
-// ===== SEND DATA =====
+// ==== SEND DATA ====
 void sendData() {
   float t = dht.readTemperature(); // đọc nhiệt
   float h = dht.readHumidity();    // đọc ẩm
