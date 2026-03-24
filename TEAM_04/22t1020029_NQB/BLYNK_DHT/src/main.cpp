@@ -44,7 +44,7 @@ BLYNK_CONNECTED() {
   Serial.println("Đã kết nối với Blynk Server!");
   
   // Gửi tên lên datastream V5
-  Blynk.virtualWrite(V5, "Nguyen Trung");
+  Blynk.virtualWrite(V5, "NQB");
   
   // Đồng bộ tất cả trạng thái từ Web/App về phần cứng
   Blynk.syncAll(); 

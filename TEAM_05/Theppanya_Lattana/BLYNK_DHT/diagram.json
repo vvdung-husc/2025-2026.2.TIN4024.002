@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "author": "Bạn",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht", "top": -100, "left": 150, "attrs": {} },
+    { "type": "wokwi-tm1637-7segment", "id": "tm1637", "top": -120, "left": -150, "attrs": { "color": "red" } },
+    { "type": "wokwi-led", "id": "led", "top": 80, "left": 150, "attrs": { "color": "red" } },
+    { "type": "wokwi-pushbutton", "id": "btn", "top": 80, "left": -100, "attrs": { "color": "green" } }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    
+    [ "dht:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "dht:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "dht:SDA", "esp:16", "green", [ "v0" ] ],
+    
+    [ "tm1637:VCC", "esp:5V", "red", [ "v0" ] ],
+    [ "tm1637:GND", "esp:GND.2", "black", [ "v0" ] ],
+    [ "tm1637:CLK", "esp:18", "blue", [ "v0" ] ],
+    [ "tm1637:DIO", "esp:19", "orange", [ "v0" ] ],
+    
+    [ "led:A", "esp:21", "red", [ "v0" ] ],
+    [ "led:C", "esp:GND.3", "black", [ "v0" ] ],
+    
+    [ "btn:1.l", "esp:23", "green", [ "v0" ] ],
+    [ "btn:2.l", "esp:GND.4", "black", [ "v0" ] ]
+  ]
+}

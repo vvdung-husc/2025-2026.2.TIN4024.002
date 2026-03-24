@@ -1,77 +1,3 @@
-<<<<<<< HEAD
-{
-  "version": 1,
-  "author": "Uri Shaked",
-  "editor": "wokwi",
-  "parts": [
-    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": -9.6, "left": 33.64, "attrs": {} },
-    { "type": "wokwi-dht22", "id": "dht2", "top": -162.9, "left": 263.4, "attrs": {} },
-    {
-      "type": "board-ssd1306",
-      "id": "oled1",
-      "top": 51.14,
-      "left": -124.57,
-      "attrs": { "i2cAddress": "0x3c" }
-    },
-    {
-      "type": "wokwi-led",
-      "id": "led1",
-      "top": -109.2,
-      "left": 147.8,
-      "attrs": { "color": "red" }
-    },
-    {
-      "type": "wokwi-led",
-      "id": "led2",
-      "top": -118.8,
-      "left": 32.6,
-      "attrs": { "color": "cyan" }
-    },
-    {
-      "type": "wokwi-led",
-      "id": "led3",
-      "top": -118.8,
-      "left": 90.2,
-      "attrs": { "color": "yellow" }
-    },
-    {
-      "type": "wokwi-resistor",
-      "id": "r1",
-      "top": 33.6,
-      "left": 191.45,
-      "rotate": 90,
-      "attrs": { "value": "220" }
-    },
-    {
-      "type": "wokwi-resistor",
-      "id": "r2",
-      "top": 33.6,
-      "left": 143.45,
-      "rotate": 90,
-      "attrs": { "value": "330" }
-    }
-  ],
-  "connections": [
-    [ "esp:TX", "$serialMonitor:RX", "", [] ],
-    [ "esp:RX", "$serialMonitor:TX", "", [] ],
-    [ "led3:A", "r2:1", "yellow", [ "v38.4", "h67.2" ] ],
-    [ "led1:A", "r1:1", "red", [ "v28.8", "h48", "v76.8" ] ],
-    [ "led2:A", "esp:5", "cyan", [ "v48", "h96", "v201.6" ] ],
-    [ "dht2:SDA", "esp:15", "green", [ "v172.8", "h-153.5" ] ],
-    [ "led2:C", "esp:GND.2", "black", [ "v57.6", "h86.8" ] ],
-    [ "led3:C", "esp:GND.2", "black", [ "v57.6", "h19.6" ] ],
-    [ "led1:C", "esp:GND.2", "black", [ "v57.6", "h-18.8" ] ],
-    [ "dht2:VCC", "esp:3V3", "red", [ "v0", "h-240" ] ],
-    [ "oled1:VCC", "esp:3V3", "red", [ "v-86.4", "h96.15" ] ],
-    [ "oled1:SCL", "esp:22", "green", [ "v-67.2", "h57.9", "v48" ] ],
-    [ "oled1:SDA", "esp:21", "green", [ "v-19.2", "h57.67", "v115.2" ] ],
-    [ "oled1:GND", "esp:GND.1", "black", [ "v-38.4", "h96", "v124.8" ] ],
-    [ "r2:2", "esp:18", "yellow", [ "h0", "v46.8" ] ],
-    [ "r1:2", "esp:19", "red", [ "h0.3", "v29" ] ],
-    [ "dht2:GND", "esp:GND.3", "black", [ "v124.8", "h-172.8" ] ]
-  ],
-  "dependencies": {}
-=======
 {
   "version": 1,
   "author": "Anonymous maker",
@@ -144,5 +70,4 @@
     [ "oled1:SDA", "esp:13", "green", [ "v0" ] ]
   ],
   "dependencies": {}
->>>>>>> 4407cdf098fece2f058ee05089a5db97904f60b2
 }

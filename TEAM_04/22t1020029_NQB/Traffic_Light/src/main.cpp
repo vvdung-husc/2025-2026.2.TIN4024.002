@@ -1,15 +1,4 @@
-/*
- * Dự án: Hệ thống Đèn Giao Thông Thông Minh
- * Board: ESP32 DevKit V4
- * Tác giả: phong315
- * 
- * Chức năng:
- * - Đèn giao thông tự động (Đỏ -> Vàng -> Xanh)
- * - Hiển thị đếm ngược trên màn hình 7 đoạn TM1637
- * - Nút nhấn: Bật/tắt hiển thị thời gian đếm ngược
- * - Cảm biến LDR: Bật/tắt đèn giao thông theo cường độ ánh sáng
- * - LED xanh dương: Đèn đường (tự động bật khi tối)
- */
+
 #include <Arduino.h>
 #include <TM1637Display.h>
 
