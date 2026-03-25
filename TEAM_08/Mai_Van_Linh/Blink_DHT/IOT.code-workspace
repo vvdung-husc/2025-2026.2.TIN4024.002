@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "../../../.."
+		},
+		{
+			"name": "telebot",
+			"path": "../telebot"
+		},
+		{
+			"name": "Blink_DHT",
+			"path": "."
+		}
+	],
+	"settings": {}
+}
