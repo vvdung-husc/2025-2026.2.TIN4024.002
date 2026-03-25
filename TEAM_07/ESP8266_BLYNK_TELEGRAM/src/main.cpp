@@ -1,6 +1,6 @@
 /*
 THÔNG TIN NHÓM 7
-1. Lê Công Mẫn
+1. Lê Công Mẫn - Telegram: No Name Gg
 2. Võ Tiến Đạt - Telegram: Vo Dat
 3. Hồ Thị Kiều Oanh
 */
