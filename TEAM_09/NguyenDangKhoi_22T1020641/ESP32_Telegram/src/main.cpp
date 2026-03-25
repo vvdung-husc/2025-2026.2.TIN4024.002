@@ -1,11 +1,3 @@
-#include <Arduino.h>
-
-/*
-  Rui Santos
-  Complete project details at https://RandomNerdTutorials.com/telegram-esp32-motion-detection-arduino/
-  
-  Project created using Brian Lough's Universal Telegram Bot Library: https://github.com/witnessmenow/Universal-Arduino-Telegram-Bot
-*/
 
 #include <WiFi.h>
 #include <WiFiClientSecure.h>
@@ -20,7 +12,6 @@
 #define BOT_TOKEN     "8614402464:AAEvKja8plF0ZZA7Fcq_nO77UYKe1TnoJzc"       // 🤖 Token từ @BotFather
 #define CHAT_ID       "-5115367463"         // 💬 Chat ID của Group
 // ============================================================
-
 
 // 📌 Chân GPIO
 #define LED_PIN 23
