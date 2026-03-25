@@ -1,26 +1,17 @@
-#include <Arduino.h>
-
-/*
-  Rui Santos
-  Complete project details at https://RandomNerdTutorials.com/telegram-esp32-motion-detection-arduino/
-  
-  Project created using Brian Lough's Universal Telegram Bot Library: https://github.com/witnessmenow/Universal-Arduino-Telegram-Bot
-*/
 
 #include <WiFi.h>
 #include <WiFiClientSecure.h>
 #include <UniversalTelegramBot.h>
 #include <ArduinoJson.h>
 
-// Replace with your network credentials
-const char* ssid = "Wokwi-GUEST";
-const char* password = "";
-
-// Initialize Telegram BOT
-#define BOTtoken "8614402464:AAEvKja8plF0ZZA7Fcq_nO77UYKe1TnoJzc"  // your Bot Token (Get from Botfather)
-
-// Dùng ChatGPT để nhờ hướng dẫn tìm giá trị GROUP_ID này
-#define GROUP_ID "-5115367463" //thường là một số âm
+// ============================================================
+//   ⚙️  CẤU HÌNH - ĐIỀN THÔNG TIN CỦA BẠN VÀO ĐÂY
+// ============================================================
+#define WIFI_SSID     "Quy"       // 📶 Tên WiFi
+#define WIFI_PASSWORD "19072004"   // 🔑 Mật khẩu WiFi
+#define BOT_TOKEN     "8614402464:AAEvKja8plF0ZZA7Fcq_nO77UYKe1TnoJzc"       // 🤖 Token từ @BotFather
+#define CHAT_ID       "-5115367463"         // 💬 Chat ID của Group
+// ============================================================
 
 // 📌 Chân GPIO
 #define LED_PIN 23
@@ -40,7 +31,7 @@ unsigned long lastPirTrigger = 0;
 const int     PIR_COOLDOWN   = 5000;  // 5 giây
 
 WiFiClientSecure      client;
-UniversalTelegramBot  bot(BOTtoken, client);
+UniversalTelegramBot  bot(BOT_TOKEN, client);
 
 // ============================================================
 //   🖨️  IN ĐƯỜNG KẺ PHÂN CÁCH RA SERIAL
@@ -167,7 +158,7 @@ void setup() {
 
   // 📶 Kết nối WiFi
   Serial.print(F("  📶 Đang kết nối WiFi"));
-  WiFi.begin(ssid, password);
+  WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
   client.setInsecure();
 
   while (WiFi.status() != WL_CONNECTED) {
@@ -184,7 +175,7 @@ void setup() {
   // 📨 Gửi thông báo khởi động lên Telegram
   Serial.println(F("  📨 Đang gửi thông báo khởi động lên Telegram..."));
 
-  bot.sendMessage(GROUP_ID,
+  bot.sendMessage(CHAT_ID,
     "🚀 *HỆ THỐNG KHỞI ĐỘNG*\n"
     "━━━━━━━━━━━━━━━━━━━━━━━\n"
     "✅ ESP32 đã kết nối thành công!\n"
@@ -218,7 +209,7 @@ void loop() {
       Serial.println(F("  📨 Đang gửi cảnh báo lên Telegram..."));
       printDivider();
 
-      bot.sendMessage(GROUP_ID,
+      bot.sendMessage(CHAT_ID,
         "🚨 *CẢNH BÁO CHUYỂN ĐỘNG!*\n"
         "━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
         "📡 PIR Sensor phát hiện *có người/vật di chuyển*!\n"
@@ -242,7 +233,7 @@ void loop() {
         String from_name = bot.messages[i].from_name;
 
         // Chỉ xử lý lệnh từ group đã cấu hình
-        if (chat_id == GROUP_ID) {
+        if (chat_id == CHAT_ID) {
           handleCommand(chat_id, text, from_name);
         } else {
           printDivider();

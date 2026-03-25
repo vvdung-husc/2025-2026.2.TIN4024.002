@@ -1,18 +1,9 @@
-/*
-  THÔNG TIN NHÓM 09
-  1. Nguyễn Đăng Khôi - Telegram : @cuanhham
-  2. Nguyễn Gia Huy - Telegram : @quy691907
-  3. Nguyễn Lê Bá Minh - Telegram : @baminhday1107
-  4. Nguyễn Nhật Hào - Telegram : @haodz145
-link tele: https://t.me/+RDyhrKpRgtlmMjA1
-  */
-
-#define BLYNK_TEMPLATE_ID "TMPL6wHdZ2xFq"
-#define BLYNK_TEMPLATE_NAME "ESP8266BLYNKTELEGRAM"
-#define BLYNK_AUTH_TOKEN "-8LazYUeNX8TFLW3VwOFdG5fO5ILlHen"
+#define BLYNK_TEMPLATE_ID "TMPL6m61qv0DM"
+#define BLYNK_TEMPLATE_NAME "ESP8266BLYNKTELEGRAMNguyenDangKhoiK46"
+#define BLYNK_AUTH_TOKEN "FrS5vkS8ck1TQhykz5W4Ne4q2TIabyj9"
 
 #define BLYNK_PRINT Serial
-
+  
 #include <Arduino.h>
 #include <math.h>
 #include <ESP8266WiFi.h>
@@ -26,8 +17,8 @@ link tele: https://t.me/+RDyhrKpRgtlmMjA1
 #include <Adafruit_SH110X.h>
 
 // ===================== WIFI =====================
-char ssid[] = "Quy";
-char pass[] = "19072004";
+char ssid[] = "A Pảo";
+char pass[] = "02082004";
 
 // ===================== TELEGRAM =====================
 #define BOT_TOKEN "8657448928:AAEQ9ThAa3rgeKJhClgUSaGbxWemT-5fXic"
