@@ -1,7 +1,7 @@
 /*
   THÔNG TIN NHÓM 05
   
-  1. Nguyễn Trung - Telegram : Nguyễn Trung
+  1. Nguyễn Trung - Telegram : ntrung24
   2. Lê Hai Kiều Linh - Telegram : Kiều Linh
   3. Nguyễn Thị Kim Chi - Telegram : Kim Chi
   4. Theppanya Lattana - Telegram : Lattana Theppanya 
