@@ -1,6 +1,6 @@
 /*
   THÔNG TIN NHÓM 09
-  1. Nguyễn Đăng Khôi
+  1. Nguyễn Đăng Khôi - Telegram : @cuanhham
   2. Nguyễn Gia Huy - Telegram : @quy691907
   3. Nguyễn Lê Bá Minh  
   4. Nguyễn Nhật Hào
