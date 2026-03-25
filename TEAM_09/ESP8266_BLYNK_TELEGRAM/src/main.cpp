@@ -1,18 +1,11 @@
 /*
-<<<<<<< HEAD
   THÔNG TIN NHÓM 09
   1. Nguyễn Đăng Khôi
-  2. Nguyễn Gia Huy
+  2. Nguyễn Gia Huy - Telegram : @quy691907
   3. Nguyễn Lê Bá Minh  
   4. Nguyễn Nhật Hào
 
   */
-=======
-THONG TIN NHOM 04
-1. Nguyen Dang Khôi
-2. Nguyễn Gia Huy - Telegram: @quy691907
-*/
->>>>>>> df6496a (giahuy)
 
 #define BLYNK_TEMPLATE_ID "TMPL6wHdZ2xFq"
 #define BLYNK_TEMPLATE_NAME "ESP8266BLYNKTELEGRAM"
