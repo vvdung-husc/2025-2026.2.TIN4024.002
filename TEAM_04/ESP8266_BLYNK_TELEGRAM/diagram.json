@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "author": "Team X",
+  "author": "Team X ",
   "editor": "wokwi",
   "parts": [
     {
@@ -73,7 +73,7 @@
     ["esp:RX0", "$serialMonitor:TX", "", []],
     ["dht1:VCC", "esp:3V3", "red", ["h0"]],
     ["dht1:GND", "esp:GND.1", "black", ["v19.5", "h-163.3"]],
-    ["dht1:SDA", "esp:D4", "green", ["v29.1", "h-144"]],
+    ["dht1:DATA", "esp:D4", "green", ["v29.1", "h-144"]],
     ["oled1:VCC", "esp:3V3", "red", ["h0"]],
     ["oled1:GND", "esp:GND.2", "black", ["h0"]],
     ["oled1:SCL", "esp:D22", "yellow", ["h0"]],
