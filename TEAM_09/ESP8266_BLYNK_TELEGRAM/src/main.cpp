@@ -2,7 +2,10 @@
   THÔNG TIN NHÓM 09
   1. Nguyễn Đăng Khôi
   2. Nguyễn Gia Huy
-*/
+  3. Nguyễn Lê Bá Minh  
+  4. Nguyễn Nhật Hào
+
+  */
 
 #include <Arduino.h>
 #include <ESP8266WiFi.h>
