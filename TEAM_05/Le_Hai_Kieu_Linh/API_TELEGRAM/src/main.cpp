@@ -20,8 +20,8 @@
 const char* ssid     = "Wokwi-GUEST";
 const char* password = "";
 
-#define BOTtoken  ""
-#define CHAT_ID   ""
+#define BOTtoken  "8153280241:AAHXS1UJB35xSkTviOdZa3xJnvxSBd3Uv4E"
+#define CHAT_ID   "-5200397872"
 
 // ============================================================
 // CHÂN GPIO
