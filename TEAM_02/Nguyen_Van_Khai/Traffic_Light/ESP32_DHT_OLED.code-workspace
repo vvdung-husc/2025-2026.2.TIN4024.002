@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "../ESP32_DHT_OLED"
+		},
+		{
+			"name": "LED_Blink",
+			"path": "../LED_Blink"
+		},
+		{
+			"name": "Traffic_Light",
+			"path": "."
+		}
+	],
+	"settings": {}
+}
