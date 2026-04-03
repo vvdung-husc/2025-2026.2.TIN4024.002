@@ -1,0 +1,69 @@
+{
+  "version": 1,
+  "author": "Traffic Light ESP32",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-esp32-devkit-v1",
+      "id": "esp",
+      "top": 0,
+      "left": 0,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-led",
+      "id": "red",
+      "top": -60,
+      "left": 220,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "yellow",
+      "top": -20,
+      "left": 220,
+      "attrs": { "color": "yellow" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "green",
+      "top": 20,
+      "left": 220,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -60,
+      "left": 160,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": -20,
+      "left": 160,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r3",
+      "top": 20,
+      "left": 160,
+      "attrs": { "value": "220" }
+    }
+  ],
+  "connections": [
+  ["esp:15", "r1:1", "green"],
+  ["r1:2", "red:A", "green"],
+  ["red:C", "esp:GND", "black"],
+
+  ["esp:2", "r2:1", "green"],
+  ["r2:2", "yellow:A", "green"],
+  ["yellow:C", "esp:GND", "black"],
+
+  ["esp:4", "r3:1", "green"],
+  ["r3:2", "green:A", "green"],
+  ["green:C", "esp:GND", "black"]
+]
+}
