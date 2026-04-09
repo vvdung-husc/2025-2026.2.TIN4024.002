@@ -57,7 +57,7 @@
 #include <Wire.h>
 #include <U8g2lib.h>
 #include <DHT.h>
-#include <BlynkSimpleEsp32.h>
+#include <BlynkSimpleEsp8266.h>
 
 // ===== WIFI =====
 const char* ssid     = "Wokwi-GUEST";
