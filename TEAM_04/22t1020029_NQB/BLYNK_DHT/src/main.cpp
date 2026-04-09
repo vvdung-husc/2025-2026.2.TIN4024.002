@@ -1,8 +1,8 @@
 #define BLYNK_PRINT Serial
 
-#define BLYNK_TEMPLATE_ID "TMPL6Y_0RtyKt"
-#define BLYNK_TEMPLATE_NAME "BlynkDHT"
-#define BLYNK_AUTH_TOKEN "vHtJcBiqxcCu8u7xsYnIrcinqMzuANm1"
+#define BLYNK_TEMPLATE_ID "TMPL6vTNEPSnD"
+#define BLYNK_TEMPLATE_NAME "ESP32 IoT"
+#define BLYNK_AUTH_TOKEN "pT9W2HiuIpmNl6Ifs0XtY8HM4mc9hDdx"
 
 #include <Arduino.h>
 #include <WiFi.h>
