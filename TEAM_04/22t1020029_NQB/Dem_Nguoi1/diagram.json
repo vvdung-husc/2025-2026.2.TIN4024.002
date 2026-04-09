@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "author": "NQB",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 124.8, "left": 321.64, "attrs": {} },
+    { "type": "wokwi-ir-receiver", "id": "irIn", "top": 39, "left": 55, "attrs": {} },
+    { "type": "wokwi-ir-receiver", "id": "irOut", "top": 39, "left": 140, "attrs": {} },
+    { "type": "wokwi-led", "id": "led1", "top": 97, "left": 209, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": 371.2,
+      "left": 82.4,
+      "attrs": { "pins": "i2c" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "lcd1:VCC", "esp:5V", "red", [ "v0", "h179", "v-196" ] ],
+    [ "lcd1:SDA", "esp:21", "blue", [ "v0", "h161", "v-95" ] ],
+    [ "lcd1:SCL", "esp:22", "orange", [ "v0", "h152", "v-106" ] ],
+    [ "irIn:GND", "esp:GND.1", "black", [ "v151.65", "h250.42" ] ],
+    [ "irIn:DAT", "esp:4", "green", [ "v238.05", "h404.02", "v-96" ] ],
+    [ "irOut:GND", "esp:GND.1", "black", [ "v151.65", "h2.22" ] ],
+    [ "led1:C", "esp:GND.1", "black", [ "v139.4", "h6.4" ] ],
+    [ "led1:A", "esp:2", "green", [ "v0" ] ],
+    [ "irOut:DAT", "esp:5", "green", [ "v228.45", "h271.02", "v-115.2" ] ],
+    [ "lcd1:GND", "esp:GND.2", "black", [ "h422.4", "v-19.2" ] ],
+    [ "irOut:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "irIn:VCC", "esp:3V3", "red", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
