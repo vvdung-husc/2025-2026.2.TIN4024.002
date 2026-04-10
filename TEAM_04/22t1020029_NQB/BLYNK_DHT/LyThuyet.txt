@@ -1,0 +1,48 @@
+1. Blynk_DHT là gì?
+
+Blynk_DHT là một chương trình (hoặc ví dụ code) dùng để:
+
+    Kết nối cảm biến DHT (DHT11 / DHT22) với nền tảng Blynk
+    Gửi dữ liệu nhiệt độ và độ ẩm lên điện thoại / web
+2. Các thành phần chính
+ a. Blynk là gì?
+Là nền tảng IoT giúp:
+Điều khiển thiết bị từ xa
+Hiển thị dữ liệu sensor trên app
+Có app trên điện thoại + server cloud
+
+ có thể tạo:
+Gauge (đồng hồ)
+Chart (biểu đồ)
+Value display (hiển thị số)
+
+b. Cảm biến DHT
+
+Gồm 2 loại phổ biến:
+
+Loại	Đặc điểm
+DHT11	Rẻ, sai số cao
+DHT22	Chính xác hơn
+
+ Đo:
+🌡️ Nhiệt độ
+💧 Độ ẩm
+
+c. ESP8266 / ESP32
+Vi điều khiển có WiFi
+Dùng để:
+Đọc dữ liệu từ DHT
+Gửi lên Blynk qua Internet
+
+3. Nguyên lý hoạt động
+
+Quy trình hoạt động của Blynk_DHT:
+
+DHT Sensor → ESP đọc dữ liệu → ESP gửi lên Blynk → App hiển thị
+
+Cụ thể:
+
+DHT đo nhiệt độ & độ ẩm
+ESP đọc dữ liệu qua chân GPIO
+ESP gửi dữ liệu lên server Blynk
+Điện thoại nhận và hiển thị

@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "author": "Oanh Hồ",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 77.4, "left": -19.8, "attrs": {} },
+    {
+      "type": "wokwi-mpu6050",
+      "id": "imu1",
+      "top": -55.22,
+      "left": -7.52,
+      "rotate": 180,
+      "attrs": {
+        "accelX": "-0.06",
+        "accelY": "0.05",
+        "accelZ": "0.9",
+        "rotationX": "157",
+        "rotationY": "57",
+        "rotationZ": "10"
+      }
+    },
+    { "type": "wokwi-led", "id": "led1", "top": -90, "left": 263, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -24,
+      "left": 85.85,
+      "rotate": 90,
+      "attrs": { "value": "1000" }
+    }
+  ],
+  "connections": [
+    [ "imu1:VCC", "uno:5V", "red", [ "v57.6", "h-86.48", "v230.4", "h259.2" ] ],
+    [ "imu1:GND", "uno:GND.1", "black", [ "v48", "h9.52" ] ],
+    [ "imu1:SCL", "uno:A5", "green", [ "v28.8", "h287.92", "v249.6", "h-28.8" ] ],
+    [ "imu1:SDA", "uno:A4", "green", [ "v19.2", "h287.92", "v268.8", "h-48" ] ],
+    [ "uno:GND.2", "led1:C", "black", [ "v38.3", "h147.9", "v-307.2", "h-115.2" ] ],
+    [ "r1:2", "uno:7", "green", [ "h0" ] ],
+    [ "led1:A", "r1:1", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
