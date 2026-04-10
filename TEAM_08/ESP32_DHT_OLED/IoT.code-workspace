@@ -26,6 +26,10 @@
 		{
 			"name": "Blynk_DHT",
 			"path": "../Le_Phuoc_Phuc/Blynk_DHT"
+		},
+		{
+			"name": "ESP32_Smart_Light",
+			"path": "../Le_Phuoc_Phuc/ESP32_Smart_Light"
 		}
 	],
 	"settings": {}
