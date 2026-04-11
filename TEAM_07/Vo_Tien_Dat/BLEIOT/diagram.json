@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "author": "09. Võ Tiến Đạt",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": 0,
+      "left": 0,
+      "attrs": { "env": "arduino-core" }
+    },
+    {
+      "type": "wokwi-slide-potentiometer",
+      "id": "pot1",
+      "top": -120,
+      "left": -250,
+      "attrs": { "travelLength": "30" }
+    },
+    {
+      "type": "wokwi-slide-potentiometer",
+      "id": "pot2",
+      "top": 0,
+      "left": -250,
+      "attrs": { "travelLength": "30" }
+    },
+    {
+      "type": "wokwi-slide-potentiometer",
+      "id": "pot3",
+      "top": 120,
+      "left": -250,
+      "attrs": { "travelLength": "30" }
+    }
+  ],
+  "connections": [
+    [ "esp:3V3", "pot1:VCC", "red", [ "v-30", "h-150" ] ],
+    [ "esp:3V3", "pot2:VCC", "red", [ "v-30", "h-150" ] ],
+    [ "esp:3V3", "pot3:VCC", "red", [ "v-30", "h-150" ] ],
+    [ "esp:GND.1", "pot1:GND", "black", [ "v-50", "h-170" ] ],
+    [ "esp:GND.1", "pot2:GND", "black", [ "v-50", "h-170" ] ],
+    [ "esp:GND.1", "pot3:GND", "black", [ "v-50", "h-170" ] ],
+    [ "esp:32", "pot1:SIG", "green", [ "h-120" ] ],
+    [ "esp:33", "pot2:SIG", "blue", [ "h-100" ] ],
+    [ "esp:34", "pot3:SIG", "orange", [ "h-80" ] ]
+  ],
+  "dependencies": {}
+}
