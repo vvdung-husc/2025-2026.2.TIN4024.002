@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "author": "Oanh Hồ",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": -68.86,
+      "left": -34.7,
+      "rotate": 90,
+      "attrs": {}
+    },
+    { "type": "wokwi-mpu6050", "id": "imu1", "top": 195.82, "left": -103.28, "attrs": {} },
+    {
+      "type": "board-ssd1306",
+      "id": "oled1",
+      "top": 147.14,
+      "left": 115.43,
+      "attrs": { "i2cAddress": "0x3c" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "imu1:VCC", "esp:CLK", "red", [ "v-19.2", "h-47.92" ] ],
+    [ "esp:CLK", "oled1:VCC", "green", [ "v28.8", "h-48", "v-153.6", "h259.2" ] ],
+    [ "imu1:GND", "esp:D0", "black", [ "v-28.8", "h-9.52" ] ],
+    [ "imu1:SCL", "esp:23", "green", [ "v-48", "h96.08" ] ],
+    [ "imu1:SDA", "esp:RX", "green", [ "v-67.2", "h9.68" ] ],
+    [ "oled1:GND", "esp:CMD", "black", [ "v-182.4", "h-220.8" ] ],
+    [ "oled1:SCL", "esp:23", "green", [ "v-38.4", "h-86.1" ] ],
+    [ "oled1:SDA", "esp:RX", "green", [ "v-48", "h-124.73" ] ]
+  ],
+  "dependencies": {}
+}

@@ -1,10 +1,10 @@
 /*
   THÔNG TIN NHÓM 05
   
-  1. Nguyễn Trung
-  2. Lê Hai Kiều Linh
-  3. Nguyễn Thị Kim Chi
-  4. Theppanya Lattana
+  1. Nguyễn Trung - Telegram : ntrung24
+  2. Lê Hai Kiều Linh - Telegram : Kiều Linh
+  3. Nguyễn Thị Kim Chi - Telegram : Kim Chi
+  4. Theppanya Lattana - Telegram : Lattana Theppanya 
 
 */
 
