@@ -1,0 +1,101 @@
+{
+  "version": 1,
+  "author": "Gia Huy",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": 0,
+      "left": -20,
+      "attrs": {}
+    },
+    {
+      "type": "board-mfrc522",
+      "id": "rfid1",
+      "top": -96,
+      "left": 300,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-servo",
+      "id": "servo1",
+      "top": 260,
+      "left": 310,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ledGreen",
+      "top": -140,
+      "left": -190,
+      "attrs": {
+        "color": "green"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ledRed",
+      "top": -90,
+      "left": -190,
+      "attrs": {
+        "color": "red"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -120,
+      "left": -130,
+      "rotate": 90,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": -70,
+      "left": -130,
+      "rotate": 90,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "buzzer1",
+      "top": 210,
+      "left": -190,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+
+    [ "rfid1:3.3V", "esp:3V3", "red", [ "h-28.8", "v-67.2", "h-310", "v76.8" ] ],
+    [ "rfid1:GND", "esp:GND.1", "black", [ "h57.6", "v220.8", "h-408", "v-86.4" ] ],
+    [ "rfid1:SDA", "esp:5", "green", [ "h57.6", "v163.2" ] ],
+    [ "rfid1:SCK", "esp:18", "blue", [ "h48", "v144" ] ],
+    [ "rfid1:MOSI", "esp:23", "orange", [ "h-48", "v67.2" ] ],
+    [ "rfid1:MISO", "esp:19", "purple", [ "h38.4", "v115.2" ] ],
+    [ "rfid1:RST", "esp:22", "yellow", [ "h28.8", "v38.4" ] ],
+
+    [ "servo1:PWM", "esp:13", "green", [ "v9.8", "h-390", "v-172.8" ] ],
+    [ "servo1:V+", "esp:VIN", "red", [ "v0" ] ],
+    [ "servo1:GND", "esp:GND.2", "black", [ "h-400", "v-316.8", "h38.4", "h134.4" ] ],
+
+    [ "esp:2", "r1:1", "green", [ "h-40", "v-90" ] ],
+    [ "r1:2", "ledGreen:A", "green", [ "h-25", "v0" ] ],
+    [ "ledGreen:C", "esp:GND.3", "black", [ "h10", "h110", "v180" ] ],
+
+    [ "esp:4", "r2:1", "red", [ "h-58", "v-56" ] ],
+    [ "r2:2", "ledRed:A", "red", [ "h-25", "v0" ] ],
+    [ "ledRed:C", "esp:GND.3", "black", [ "h10", "h110", "v132" ] ],
+
+    [ "buzzer1:1", "esp:27", "orange", [ "h28.8", "v-48", "h120" ] ],
+    [ "buzzer1:2", "esp:GND.3", "black", [ "h19.2", "v-38.4", "h130" ] ]
+  ],
+  "dependencies": {}
+}
