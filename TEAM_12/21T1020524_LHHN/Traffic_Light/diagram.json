@@ -1,0 +1,111 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led_red",
+      "top": -120,
+      "left": -150,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_yellow",
+      "top": -120,
+      "left": -110,
+      "attrs": { "color": "yellow" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_green",
+      "top": -120,
+      "left": -70,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -60,
+      "left": -150,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": -60,
+      "left": -110,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r3",
+      "top": -60,
+      "left": -70,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-tm1637-7segment",
+      "id": "tm1637",
+      "top": -150,
+      "left": 50,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn",
+      "top": 50,
+      "left": -150,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr",
+      "top": 120,
+      "left": -150,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_street",
+      "top": 120,
+      "left": 50,
+      "attrs": { "color": "white" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r4",
+      "top": 170,
+      "left": 50,
+      "attrs": { "value": "220" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:GND.1", "r1:1", "black", [ "v0" ] ],
+    [ "esp:GND.1", "r2:1", "black", [ "v0" ] ],
+    [ "esp:GND.1", "r3:1", "black", [ "v0" ] ],
+    [ "r1:2", "led_red:C", "black", [ "v0" ] ],
+    [ "r2:2", "led_yellow:C", "black", [ "v0" ] ],
+    [ "r3:2", "led_green:C", "black", [ "v0" ] ],
+    [ "esp:25", "led_red:A", "red", [ "v0" ] ],
+    [ "esp:26", "led_yellow:A", "yellow", [ "v0" ] ],
+    [ "esp:27", "led_green:A", "green", [ "v0" ] ],
+    [ "tm1637:CLK", "esp:2", "blue", [ "v0" ] ],
+    [ "tm1637:DIO", "esp:3", "orange", [ "v0" ] ],
+    [ "tm1637:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "tm1637:GND", "esp:GND.2", "black", [ "v0" ] ],
+    [ "btn:1.l", "esp:GND.2", "black", [ "v0" ] ],
+    [ "btn:2.l", "esp:14", "green", [ "v0" ] ],
+    [ "ldr:AO", "esp:34", "purple", [ "v0" ] ],
+    [ "ldr:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "ldr:GND", "esp:GND.3", "black", [ "v0" ] ],
+    [ "esp:32", "led_street:A", "white", [ "v0" ] ],
+    [ "led_street:C", "r4:1", "black", [ "v0" ] ],
+    [ "r4:2", "esp:GND.3", "black", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
